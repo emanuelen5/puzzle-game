@@ -14,4 +14,6 @@
 
 #photo {
   width: 100%;
+  -webkit-clip-path: inset(0 25% 25% 0);
+  clip-path: inset(0 25% 25% 0);
 }
