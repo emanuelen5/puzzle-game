@@ -13,6 +13,7 @@
 }
 
 .tile {
+  grid-area: 1/1/1/1;
   background-image: url('https://cdn.glitch.com/24dc13be-ff08-4007-bf38-7c45e0b5d9e1%2FIMG_20180826_114200.jpg?1535486103628');
   -webkit-clip-path: polygon(0% 0%, 25% 0%, 25% 25%, 0% 25%);
   clip-path: polygon(0% 0%, 25% 0%, 25% 25%, 0% 25%);
