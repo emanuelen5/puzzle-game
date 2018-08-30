@@ -18,12 +18,12 @@
   height: var(--game-height);;
   grid-template-rows: repeat(4, 1fr);
   grid-template-columns: repeat(4, 1fr);
+  background-image: url('https://cdn.glitch.com/24dc13be-ff08-4007-bf38-7c45e0b5d9e1%2FIMG_20180826_114200.jpg?1535486103628');
 }
 
 .tile {
   background-image: url('https://cdn.glitch.com/24dc13be-ff08-4007-bf38-7c45e0b5d9e1%2FIMG_20180826_114200.jpg?1535486103628');
   background-size: auto var(--game-height);
-  /*transform: scale(4);*/
   height:100%;
   width:100%;
   background-position: inherit;
@@ -48,26 +48,26 @@
   background-position-x: 75%;
   grid-column: 4/5;
 }
-/*
-.tile-container:nth-child(n+5):nth-child(-n+8) {
+
+.tile-container:nth-of-type(n+1):nth-of-type(-n+4) {
   background-position-y: 0%;
   grid-row: 1/2;
 }
 
-.tile:nth-of-type(n+5):not(:nth-child(n+8)) {
+.tile-container:nth-of-type(n+5):nth-of-type(-n+8) {
   background-position-y: 25%;
   grid-row: 2/3;
 }
 
-.tile:nth-child(-3+4) {
+.tile-container:nth-of-type(n+9):nth-of-type(-n+12) {
   background-position-y: 50%;
   grid-row: 3/4;
 }
 
-.tile:nth-child(-4+4) {
+.tile-container:nth-of-type(n+13):nth-of-type(-n+16) {
   background-position-y: 75%;
   grid-row: 4/5;
-}*/
+}
 
 .tile-container {
   overflow: hidden;
