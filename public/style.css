@@ -16,8 +16,20 @@
 }
 
 .tile {
-  grid-area: 1/1/2/2;
   background-image: url('https://cdn.glitch.com/24dc13be-ff08-4007-bf38-7c45e0b5d9e1%2FIMG_20180826_114200.jpg?1535486103628');
   background-size: cover;
   transform: scale(4);
+  height:100%;
+  width:100%;
+}
+
+.tile-container {
+  overflow: hidden;
+}
+
+#tile1 {
+  grid-area: 1/1/2/2;
+}
+#tile2 {
+  grid-area: 1/2/2/3;
 }
