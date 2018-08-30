@@ -42,7 +42,9 @@ function initialiseGame() {
     container.style.gridColumn = `${gridColumnStart} / ${gridColumnStart + 1}`
     container.style.gridRow = `${gridRowStart} / ${gridRowStart + 1}`
     
-    container.on('click
+    container.addEventListener('click', function(e) {
+      console.log(e.target.id);
+    })
   })
 }
 
