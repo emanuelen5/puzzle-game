@@ -28,15 +28,26 @@
   width:100%;
 }
 
+.tile:nth-child(4n+0) {
+  background-position: 0% 25%;
+}
+
 .tile-container {
   overflow: hidden;
 }
 
-#tile1 {
+#container1 {
   grid-area: 1/1/2/2;
+}
+#container2 {
+  grid-area: 1/2/2/3;
+}
+
+#tile1 {
   background-position: 0% 0%;
+
 }
 #tile2 {
-  grid-area: 1/2/2/3;
   background-position: 0% 25%;
+
 }
