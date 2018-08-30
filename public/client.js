@@ -43,6 +43,12 @@ function positionImages() {
   })
 }
 
+function deleteTile() {
+  //TODO: make this user-customisable
+  document.getElementById('container-15').remove()
+}
+
 gameSetup()
 createTiles()
 positionImages()
+deleteTile()
