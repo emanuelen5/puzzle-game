@@ -39,9 +39,34 @@
   grid-column: 2/3;
 }
 
-.tile:nth-child(-n+4) {
+.tile-container:nth-of-type(4n+3) {
+  background-position-x: 50%;
+  grid-column: 3/4;
+}
+
+.tile-container:nth-of-type(4n+4) {
+  background-position-x: 75%;
+  grid-column: 4/5;
+}
+
+.tile:nth-of-type(n+3):nth-child(-n+7) {
   background-position-y: 0%;
   grid-row: 1/2;
+}
+
+.tile:nth-of-type{
+  background-position-y: 25%;
+  grid-row: 2/3;
+}
+
+.tile:nth-child(-3+4) {
+  background-position-y: 50%;
+  grid-row: 3/4;
+}
+
+.tile:nth-child(-4+4) {
+  background-position-y: 75%;
+  grid-row: 4/5;
 }
 
 .tile-container {

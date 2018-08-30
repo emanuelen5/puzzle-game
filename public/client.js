@@ -15,3 +15,14 @@ if (gameAspectRatio > 1) {
   gameArea.style.setProperty('--game-width', `${width}vh`)
   gameArea.style.setProperty('--game-height', `${maxViewportHeight}vh`)
 }
+
+function createTiles() {
+  var tileHTML=`<div class="tile-container">
+          <div class="tile"></div>
+        </div>`
+  var tiles = [...Array(16)].map(_ => tileHTML)
+  
+  gameArea.innerHTML = tiles.join("")
+}
+
+createTiles()
