@@ -28,8 +28,16 @@
   width:100%;
 }
 
-.tile:nth-child(4n+0) {
-  background-position: 0% 25%;
+#game-area .tile:nth-of-type(4n+0) {
+  background-position-x: 0%;
+}
+
+#game-area .tile:nth-of-type(4n+1) {
+  background-position-x: 25%;
+}
+
+.tile:nth-child(-n+4) {
+  background-position-y: 0%
 }
 
 .tile-container {
@@ -41,13 +49,4 @@
 }
 #container2 {
   grid-area: 1/2/2/3;
-}
-
-#tile1 {
-  background-position: 0% 0%;
-
-}
-#tile2 {
-  background-position: 0% 25%;
-
 }
