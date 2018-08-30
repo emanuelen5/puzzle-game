@@ -32,46 +32,6 @@
   background-position: inherit;
 }
 
-.tile-container:nth-of-type(4n+1) {
-  background-position-x: 0%;
-  grid-column: 1/2;
-}
-
-.tile-container:nth-of-type(4n+2) {
-  background-position-x: 33.333%;
-  grid-column: 2/3;
-}
-
-.tile-container:nth-of-type(4n+3) {
-  background-position-x: 66.667%;
-  grid-column: 3/4;
-}
-
-.tile-container:nth-of-type(4n+4) {
-  background-position-x: 100%;
-  grid-column: 4/5;
-}
-
-.tile-container:nth-of-type(n+1):nth-of-type(-n+4) {
-  background-position-y: 0%;
-  grid-row: 1/2;
-}
-
-.tile-container:nth-of-type(n+5):nth-of-type(-n+8) {
-  background-position-y: 33.333%;
-  grid-row: 2/3;
-}
-
-.tile-container:nth-of-type(n+9):nth-of-type(-n+12) {
-  background-position-y: 66.667%;
-  grid-row: 3/4;
-}
-
-.tile-container:nth-of-type(n+13):nth-of-type(-n+16) {
-  background-position-y: 100%;
-  grid-row: 4/5;
-}
-
 .tile-container {
   border-radius: 5px;
   overflow: hidden;

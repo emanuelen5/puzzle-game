@@ -29,10 +29,10 @@ function createTiles() {
 }
 
 function positionImages() {
-  var tileContainerArray = document.querySelectorAll('tile-container')
+  var tileContainerArray = document.querySelectorAll('.tile-container')
   tileContainerArray.forEach(function(container,index) {
-    var backgroundPositionX = (index % 4) * 1/3
-    var backgroundPositionY = Math.floor(index/4) * 1/3
+    var backgroundPositionX = (index % 4) * 100/3
+    var backgroundPositionY = Math.floor(index/4) * 100/3
     var gridColumnStart = (index % 4) + 1
     var gridRowStart = Math.floor(index/4) + 1
     
