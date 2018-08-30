@@ -1,8 +1,9 @@
 var gameArea = document.getElementById('game-area');
 var img = new Image();
-img.src = 'https://cdn.glitch.com/24dc13be-ff08-4007-bf38-7c45e0b5d9e1%2FPANO_20180826_115053.jpg?1535662207230'
+img.src = 'https://cdn.glitch.com/24dc13be-ff08-4007-bf38-7c45e0b5d9e1%2FIMG_20180826_104348.jpg?1535662149619'
+var gameState = [];
 
-function gameSetup() {
+function boardSetup() {
   var gameAspectRatio = img.naturalWidth / img.naturalHeight
   gameArea.style.setProperty('--img-url', `url(${img.src}`)
 
@@ -28,7 +29,7 @@ function createTiles() {
   gameArea.innerHTML = tiles.join("")
 }
 
-function positionImages() {
+function initialiseGame() {
   var tileContainerArray = document.querySelectorAll('.tile-container')
   tileContainerArray.forEach(function(container,index) {
     var backgroundPositionX = (index % 4) * 100/3
@@ -40,6 +41,8 @@ function positionImages() {
     container.style.backgroundPosition = `${backgroundPositionX}% ${backgroundPositionY}%`
     container.style.gridColumn = `${gridColumnStart} / ${gridColumnStart + 1}`
     container.style.gridRow = `${gridRowStart} / ${gridRowStart + 1}`
+    
+    container.on('click
   })
 }
 
@@ -49,12 +52,16 @@ function deleteTile() {
 }
 
 window.onload = function() {
-  gameSetup()
+  boardSetup()
   createTiles()
-  positionImages()
+  initialiseGame()
   deleteTile()
 }
 
 // Game play
-function moveTile() {
+function moveTile(dir) {
+}
+
+function drawGame() {
+
 }
