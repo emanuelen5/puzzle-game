@@ -48,13 +48,13 @@
   background-position-x: 75%;
   grid-column: 4/5;
 }
-
-.tile:nth-of-type(n+3):nth-child(-n+7) {
+/*
+.tile-container:nth-child(n+5):nth-child(-n+8) {
   background-position-y: 0%;
   grid-row: 1/2;
 }
 
-.tile:nth-of-type{
+.tile:nth-of-type(n+5):not(:nth-child(n+8)) {
   background-position-y: 25%;
   grid-row: 2/3;
 }
@@ -67,7 +67,7 @@
 .tile:nth-child(-4+4) {
   background-position-y: 75%;
   grid-row: 4/5;
-}
+}*/
 
 .tile-container {
   overflow: hidden;
