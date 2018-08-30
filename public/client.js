@@ -48,7 +48,9 @@ function deleteTile() {
   document.getElementById('container-15').remove()
 }
 
-gameSetup()
-createTiles()
-positionImages()
-deleteTile()
+window.onload = function() {
+  gameSetup()
+  createTiles()
+  positionImages()
+  deleteTile()
+}
