@@ -29,19 +29,18 @@ function createTiles() {
 }
 
 function positionImages() {
-  var tilesArray = document.querySelectorAll('tile-container')
-  tilesArray.forEach(function(tile,index) {
-    background-poit
+  var tileContainerArray = document.querySelectorAll('tile-container')
+  tileContainerArray.forEach(function(container,index) {
+    var backgroundPositionX = (index % 4) * 1/3
+    var backgroundPositionY = Math.floor(index/4) * 1/3
+    var gridColumnStart = (index % 4) + 1
+    var gridRowStart = Math.floor(index/4) + 1
+    
+    container.id = `container-${index}`
+    container.style.backgroundPosition = `${backgroundPositionX}% ${backgroundPositionY}%`
+    container.style.gridColumn = `${gridColumnStart} / ${gridColumnStart + 1}`
+    container.style.gridRow = `${gridRowStart} / ${gridRowStart + 1}`
   })
-.tile-container:nth-of-type(4n+4) {
-  background-position-x: 100%;
-  grid-column: 4/5;
-}
-
-.tile-container:nth-of-type(n+1):nth-of-type(-n+4) {
-  background-position-y: 0%;
-  grid-row: 1/2;
-}
 }
 
 gameSetup()
