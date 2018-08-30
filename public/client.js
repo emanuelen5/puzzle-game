@@ -8,10 +8,10 @@ if (gameAspectRatio > 1) {
   var maxViewportWidth = 90;
   gameArea.style.setProperty('--game-width', `${maxViewportWidth}vw`)
   var height = maxViewportWidth / gameAspectRatio
-  gameArea.style.setProperty('--game-height', '${height}vw')
+  gameArea.style.setProperty('--game-height', `${height}vw`)
 } else {
   var maxViewportHeight = 80;
   var width = maxViewportHeight * gameAspectRatio
-  gameArea.style.setProperty('--game-width', `${width}vw`)
-  gameArea.style.setProperty('--game-height', '${maxViewportHeight}vw')
+  gameArea.style.setProperty('--game-width', `${width}vh`)
+  gameArea.style.setProperty('--game-height', `${maxViewportHeight}vh`)
 }

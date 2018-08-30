@@ -34,6 +34,7 @@
 
 #tile1 {
   grid-area: 1/1/2/2;
+  background-position: 0%, 0%;
 }
 #tile2 {
   grid-area: 1/2/2/3;
