@@ -26,27 +26,24 @@
   /*transform: scale(4);*/
   height:100%;
   width:100%;
+  background-position: inherit;
 }
 
-#game-area .tile:nth-of-type(4n+0) {
+.tile-container:nth-of-type(4n+1) {
   background-position-x: 0%;
+  grid-column: 1/2;
 }
 
-#game-area .tile:nth-of-type(4n+1) {
+.tile-container:nth-of-type(4n+2) {
   background-position-x: 25%;
+  grid-column: 2/3;
 }
 
 .tile:nth-child(-n+4) {
-  background-position-y: 0%
+  background-position-y: 0%;
+  grid-row: 1/2;
 }
 
 .tile-container {
   overflow: hidden;
-}
-
-#container1 {
-  grid-area: 1/1/2/2;
-}
-#container2 {
-  grid-area: 1/2/2/3;
 }
