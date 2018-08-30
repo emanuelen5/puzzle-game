@@ -2,7 +2,8 @@
 /* called by your view template */
 
 :root {
-  --game-aspect-ratio: 1.3333;
+  --game-width: 0vw;
+  --game-height: 0vw;
 }
 
 * {
@@ -13,8 +14,8 @@
   display: grid;
   position: relative;
   margin: auto;
-  width: var(--game-aspect-ratio);
-  height: 90vw;
+  width: var(--game-width);
+  height: var(--game-height);;
   grid-template-rows: repeat(4, 1fr);
   grid-template-columns: repeat(4, 1fr);
 }
