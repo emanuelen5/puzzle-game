@@ -46,22 +46,33 @@ function tileSetup() {
       console.log(e);
     })
   })
+  //TODO: make this user-customisable
+  deleteTile('container-15')
+  
+  gameState = [
+    [1,2,3,4],
+    [5,6,7,8],
+    [9,10,11,12],
+    [13,14,15,null]
+  ]
 }
 
-function deleteTile(tile) {
-  //TODO: make this user-customisable
-  document.getElementById('container-15').remove()
+function deleteTile(tileId) {
+  document.getElementById(tileId).remove()
 }
 
 window.onload = function() {
   boardSetup()
   createTiles()
   tileSetup()
-  deleteTile()
 }
 
 // Game play
 function moveTile(dir) {
+  checkValidMove()
+}
+
+function checkValidMove(start, end) {
 }
 
 function drawGame() {
