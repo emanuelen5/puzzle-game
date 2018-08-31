@@ -48,7 +48,7 @@ function tileSetup() {
   })
 }
 
-function deleteTile() {
+function deleteTile(tile) {
   //TODO: make this user-customisable
   document.getElementById('container-15').remove()
 }
