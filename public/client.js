@@ -29,7 +29,7 @@ function createTiles() {
   gameArea.innerHTML = tiles.join("")
 }
 
-function initialiseGame() {
+function tileSetup() {
   var tileContainerArray = document.querySelectorAll('.tile-container')
   tileContainerArray.forEach(function(container,index) {
     var backgroundPositionX = (index % 4) * 100/3
@@ -43,7 +43,7 @@ function initialiseGame() {
     container.style.gridRow = `${gridRowStart} / ${gridRowStart + 1}`
     
     container.addEventListener('click', function(e) {
-      console.log(e.target.id);
+      console.log(e);
     })
   })
 }
@@ -56,7 +56,7 @@ function deleteTile() {
 window.onload = function() {
   boardSetup()
   createTiles()
-  initialiseGame()
+  tileSetup()
   deleteTile()
 }
 
