@@ -3,7 +3,7 @@ var img = new Image();
 img.src = 'https://cdn.glitch.com/24dc13be-ff08-4007-bf38-7c45e0b5d9e1%2FIMG_20180826_104348.jpg?1535662149619'
 var tileState = {
   tileLoc: {},
-  isNull: ''
+  nullLoc: ''
 };
 
 function boardSetup() {
@@ -58,7 +58,7 @@ function tileSetup() {
 
 function deleteTile(tileId) {
   document.getElementById(tileId).remove()
-  tileState['isNull'] = tileState['tileLoc'][tileId]
+  tileState['nullLoc'] = tileState['tileLoc'][tileId]
   tileState['tileLoc'][tileId] = ''
 }
 
@@ -66,17 +66,34 @@ window.onload = function() {
   boardSetup()
   createTiles()
   tileSetup()
+  testValidMoves()
 }
 
 // Game play
-function moveTile(tile) {
-  checkValidMove()
+function moveTile(tileId) {
+  var tileLoc = getTileLoc(tileId);
+  var nullLoc = tileState['nullLoc']
+  checkValidMove(tileLoc, nullLoc)
 }
 
-function checkValidMove(start, end) {
-  tileState.indexOf[null]
+function checkValidMove(tileLoc, nullLoc) {
+  // Check if they're vertically above or below each other
+  if (tileLoc - nullLoc % 4 === 0 && tileLoc % 4 === nullLoc % 4 ) {
+    return true;
+  }
 }
 
 function drawGame() {
 
+}
+
+function getTileLoc(tileId) {
+  return tileState['tileLoc'][tileId]
+}
+
+function testValidMoves() {
+  console.log(`checkValidMove(1, 5): ${checkValidMove(1, 5) === true}`)
+  console.log(`checkValidMove(13, 5): ${checkValidMove(13, 5) === false}`)
+  console.log(`checkValidMove(5, 1): ${checkValidMove(5, 1) === true}`)
+  return true
 }
