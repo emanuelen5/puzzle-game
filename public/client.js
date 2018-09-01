@@ -78,8 +78,15 @@ function moveTile(tileId) {
 
 function checkValidMove(tileLoc, nullLoc) {
   // Check if they're vertically above or below each other
-  if (tileLoc - nullLoc % 4 === 0 && tileLoc % 4 === nullLoc % 4 ) {
+  if (Math.abs((tileLoc - nullLoc)) === 4 && 
+      ((tileLoc % 4) === (nullLoc % 4 ))) {
     return true;
+  } 
+  // Check if they're next to each other on the same row
+  else if (null) {
+    
+  } else {
+    return false;
   }
 }
 
