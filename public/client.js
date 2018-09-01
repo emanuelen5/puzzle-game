@@ -1,7 +1,7 @@
 var gameArea = document.getElementById('game-area');
 var img = new Image();
 img.src = 'https://cdn.glitch.com/24dc13be-ff08-4007-bf38-7c45e0b5d9e1%2FIMG_20180826_104348.jpg?1535662149619'
-var gameState = [];
+var tileState = [];
 
 function boardSetup() {
   var gameAspectRatio = img.naturalWidth / img.naturalHeight
@@ -42,23 +42,20 @@ function tileSetup() {
     container.style.gridColumn = `${gridColumnStart} / ${gridColumnStart + 1}`
     container.style.gridRow = `${gridRowStart} / ${gridRowStart + 1}`
     
+    tileState[container.id] = index
+    
     container.addEventListener('click', function(e) {
       console.log(e);
+    console.log(tileState)
     })
   })
   //TODO: make this user-customisable
   deleteTile('container-15')
-  
-  gameState = [
-    [1,2,3,4],
-    [5,6,7,8],
-    [9,10,11,12],
-    [13,14,15,null]
-  ]
 }
 
 function deleteTile(tileId) {
   document.getElementById(tileId).remove()
+  tileState[tileId] = ''
 }
 
 window.onload = function() {
@@ -73,6 +70,7 @@ function moveTile(dir) {
 }
 
 function checkValidMove(start, end) {
+  tileState.indexOf[null]
 }
 
 function drawGame() {
