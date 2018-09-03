@@ -38,13 +38,9 @@ function tileSetup() {
   tileContainerArray.forEach(function(container,index) {
     var backgroundPositionX = (index % 4) * 100/3
     var backgroundPositionY = Math.floor(index/4) * 100/3
-    var gridColumnStart = (index % 4) + 1
-    var gridRowStart = Math.floor(index/4) + 1
     
     container.id = `container-${index}`
     container.style.backgroundPosition = `${backgroundPositionX}% ${backgroundPositionY}%`
-    container.style.gridColumn = `${gridColumnStart} / ${gridColumnStart + 1}`
-    container.style.gridRow = `${gridRowStart} / ${gridRowStart + 1}`
     
     tileState['tileLoc'][container.id] = index
     
@@ -69,7 +65,8 @@ window.onload = function() {
   boardSetup()
   createTiles()
   tileSetup()
-  testValidMoves()
+  drawGame()
+  //testValidMoves()
 }
 
 // Game play
