@@ -76,7 +76,12 @@ window.onload = function() {
 function moveTile(tileId) {
   var tileLoc = getTileLoc(tileId);
   var nullLoc = getNullLoc();
-  console.log(checkValidMove(tileLoc, nullLoc))
+  if (checkValidMove(tileLoc, nullLoc)) {
+    tileState['tileLoc'][tileId] = nullLoc
+    tileState['nullLoc'] = tileLoc
+    console.log(tileState)
+    drawGame();
+  }
 }
 
 function checkValidMove(tileLoc, nullLoc) {
@@ -94,7 +99,9 @@ function checkValidMove(tileLoc, nullLoc) {
 }
 
 function drawGame() {
-
+  tileState['tileLoc'].forEach(function(tile) {
+    
+  });
 }
 
 function getTileLoc(tileId) {
