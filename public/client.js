@@ -62,7 +62,7 @@ function tileSetup() {
 function deleteTile(tileId) {
   document.getElementById(tileId).remove()
   tileState['nullLoc'] = tileState['tileLoc'][tileId]
-  tileState['tileLoc'][tileId] = ''
+  tileState['tileLoc'][tileId] = null
 }
 
 window.onload = function() {
@@ -103,7 +103,7 @@ function drawGame() {
   for (var key in tiles) {
     var tileLoc = tiles[key]
     
-    if (tileLoc) { // only attempt to draw tile if it has a location
+    if (tileLoc != null) { // only attempt to draw tile if it has a location
       var gridColumnStart = (tileLoc % 4) + 1
       var gridRowStart = Math.floor(tileLoc/4) + 1
 
