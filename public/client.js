@@ -99,9 +99,19 @@ function checkValidMove(tileLoc, nullLoc) {
 }
 
 function drawGame() {
-  tileState['tileLoc'].map(function(tile) {
-    console.log(tile)
-  });
+  var tiles = tileState['tileLoc']
+  for (var key in tiles) {
+    var tileLoc = tiles[key]
+    
+    if (tileLoc) { // only attempt to draw tile if it has a location
+      var gridColumnStart = (tileLoc % 4) + 1
+      var gridRowStart = Math.floor(tileLoc/4) + 1
+
+      var container = document.getElementById(key)
+      container.style.gridColumn = `${gridColumnStart} / ${gridColumnStart + 1}`
+      container.style.gridRow = `${gridRowStart} / ${gridRowStart + 1}`
+    }
+  };
 }
 
 function getTileLoc(tileId) {
