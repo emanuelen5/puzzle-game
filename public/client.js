@@ -49,10 +49,7 @@ function tileSetup() {
     tileState['tileLoc'][container.id] = index
     
     var tileNumber = index + 1
-    var numberEl = container.querySelector('.number')
-    numberEl.innerText = tileNumber
-    numberEl.style.color = 'white'
-    numberEl.style.mixBlendMode = 'overlay'
+    container.querySelector('.number').innerText = tileNumber
     
     
     container.addEventListener('click', function(e) {
