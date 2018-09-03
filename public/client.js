@@ -83,8 +83,7 @@ function checkValidMove(tileLoc, nullLoc) {
   } 
   // Check if they're next to each other on the same row
   else if (Math.abs(tileLoc - nullLoc) === 1 && 
-           (tileLoc % 4 || nullLoc % 4 !== 0) &&
-           (tileLoc % 4 || nullLoc % 4 !== 1)) {
+           [tileLoc % 4, nullLoc % 4].some {val => return ![0,1].includes(val) }) {
     return true;
   } else {
     return false;
