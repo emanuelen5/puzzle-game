@@ -83,8 +83,8 @@ function checkValidMove(tileLoc, nullLoc) {
   } 
   // Check if they're next to each other on the same row
   else if (Math.abs(tileLoc - nullLoc) === 1 && 
-           tileLoc || nullLoc !== 0 &&
-           tileLoc || nullLoc !== 1) {
+           (tileLoc % 4 || nullLoc % 4 !== 0) &&
+           (tileLoc % 4 || nullLoc % 4 !== 1)) {
     return true;
   } else {
     return false;
@@ -100,12 +100,12 @@ function getTileLoc(tileId) {
 }
 
 function testValidMoves() {
-  console.log(`checkValidMove(1, 5): ${checkValidMove(1, 5) === true}`)
-  console.log(`checkValidMove(13, 5): ${checkValidMove(13, 5) === false}`)
-  console.log(`checkValidMove(5, 1): ${checkValidMove(5, 1) === true}`)
-  console.log(`checkValidMove(4, 5): ${checkValidMove(4, 5) === false}`)
-  console.log(`checkValidMove(9, 8): ${checkValidMove(9, 8) === false}`)
-  console.log(`checkValidMove(1, 2): ${checkValidMove(1, 2) === true}`)
-  console.log(`checkValidMove(6, 2): ${checkValidMove(6, 2) === false}`)
+  console.log(`checkValidMove(1, 5) is true: ${checkValidMove(1, 5) === true}`)
+  console.log(`checkValidMove(13, 5) is false: ${checkValidMove(13, 5) === false}`)
+  console.log(`checkValidMove(5, 1) is true: ${checkValidMove(5, 1) === true}`)
+  console.log(`checkValidMove(4, 5) is false: ${checkValidMove(4, 5) === false}`)
+  console.log(`checkValidMove(9, 8) is false: ${checkValidMove(9, 8) === false}`)
+  console.log(`checkValidMove(1, 2) is true: ${checkValidMove(1, 2) === true}`)
+  console.log(`checkValidMove(6, 2) is false: ${checkValidMove(6, 2) === false}`)
   return true
 }
