@@ -27,7 +27,7 @@
 
 .number {
   color: white;
-  mix-blend-mode: overlay;
+  mix-blend-mode: difference;
   position: relative;
   padding: 0.25em;
 }
