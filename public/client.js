@@ -1,6 +1,6 @@
 var gameArea = document.getElementById('game-area');
 var img = new Image();
-img.src = 'https://cdn.glitch.com/24dc13be-ff08-4007-bf38-7c45e0b5d9e1%2FPANO_20180826_115053.jpg?1536004128648'
+img.src = 'https://cdn.glitch.com/24dc13be-ff08-4007-bf38-7c45e0b5d9e1%2FIMG_20180826_114200.jpg?1535486103628'
 var tileState = {
   tileLoc: {},
   nullLoc: ''
