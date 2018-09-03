@@ -48,8 +48,7 @@ function tileSetup() {
     tileState['tileLoc'][container.id] = index
     
     container.addEventListener('click', function(e) {
-      console.log(e);
-      console.log(tileState)
+      moveTile(e.id)
     })
   })
   //TODO: make this user-customisable
@@ -72,8 +71,8 @@ window.onload = function() {
 // Game play
 function moveTile(tileId) {
   var tileLoc = getTileLoc(tileId);
-  var nullLoc = tileState['nullLoc']
-  checkValidMove(tileLoc, nullLoc)
+  var nullLoc = getNullLoc();
+  console.log(checkValidMove(tileLoc, nullLoc))
 }
 
 function checkValidMove(tileLoc, nullLoc) {
@@ -83,7 +82,7 @@ function checkValidMove(tileLoc, nullLoc) {
   } 
   // Check if they're next to each other on the same row
   else if (Math.abs(tileLoc - nullLoc) === 1 && 
-           [tileLoc % 4, nullLoc % 4].some {val => return ![0,1].includes(val) }) {
+           [tileLoc % 4, nullLoc % 4].some(val => ![0,1].includes(val) )) {
     return true;
   } else {
     return false;
@@ -97,6 +96,10 @@ function drawGame() {
 function getTileLoc(tileId) {
   return tileState['tileLoc'][tileId]
 }
+  
+function getNullLoc() {
+  return tileState['nullLoc']
+}
 
 function testValidMoves() {
   console.log(`checkValidMove(1, 5) is true: ${checkValidMove(1, 5) === true}`)
@@ -105,6 +108,6 @@ function testValidMoves() {
   console.log(`checkValidMove(4, 5) is false: ${checkValidMove(4, 5) === false}`)
   console.log(`checkValidMove(9, 8) is false: ${checkValidMove(9, 8) === false}`)
   console.log(`checkValidMove(1, 2) is true: ${checkValidMove(1, 2) === true}`)
-  console.log(`checkValidMove(6, 2) is false: ${checkValidMove(6, 2) === false}`)
+  console.log(`checkValidMove(6, 2) is true: ${checkValidMove(6, 2) === true}`)
   return true
 }
