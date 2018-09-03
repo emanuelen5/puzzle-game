@@ -31,6 +31,7 @@
   position: relative;
   padding: 0.25em;
   font-size: 1.2em;
+  text-shadow: darkgrey 1px 1px;
 }
 
 .tile {
