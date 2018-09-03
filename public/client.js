@@ -69,7 +69,7 @@ window.onload = function() {
   boardSetup()
   createTiles()
   tileSetup()
-  //testValidMoves()
+  testValidMoves()
 }
 
 // Game play
@@ -91,7 +91,7 @@ function checkValidMove(tileLoc, nullLoc) {
   } 
   // Check if they're next to each other on the same row
   else if (Math.abs(tileLoc - nullLoc) === 1 && 
-           [tileLoc % 4, nullLoc % 4].some(val => ![0,1].includes(val) )) {
+           [tileLoc % 4, nullLoc % 4].some(val => ![0,3].includes(val) )) {
     return true;
   } else {
     return false;
@@ -123,11 +123,14 @@ function getNullLoc() {
 }
 
 function testValidMoves() {
+  console.log(`checkValidMove(1, 0) is true: ${checkValidMove(1, 0) === true}`)
   console.log(`checkValidMove(1, 5) is true: ${checkValidMove(1, 5) === true}`)
   console.log(`checkValidMove(13, 5) is false: ${checkValidMove(13, 5) === false}`)
   console.log(`checkValidMove(5, 1) is true: ${checkValidMove(5, 1) === true}`)
-  console.log(`checkValidMove(4, 5) is false: ${checkValidMove(4, 5) === false}`)
-  console.log(`checkValidMove(9, 8) is false: ${checkValidMove(9, 8) === false}`)
+  console.log(`checkValidMove(3, 4) is false: ${checkValidMove(3, 4) === false}`)
+  console.log(`checkValidMove(4, 5) is true: ${checkValidMove(4, 5) === true}`)
+  console.log(`checkValidMove(8, 7) is false: ${checkValidMove(8, 7) === false}`)
+  console.log(`checkValidMove(9, 8) is true: ${checkValidMove(9, 8) === true}`)
   console.log(`checkValidMove(1, 2) is true: ${checkValidMove(1, 2) === true}`)
   console.log(`checkValidMove(6, 2) is true: ${checkValidMove(6, 2) === true}`)
   return true
