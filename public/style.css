@@ -9,6 +9,7 @@
 
 * {
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
 #game-area {
@@ -22,6 +23,13 @@
   
   width: var(--game-width);
   height: var(--game-height);
+}
+
+.number {
+  color: white;
+  mix-blend-mode: overlay;
+  position: relative;
+  padding: 0.25em;
 }
 
 .tile {

@@ -24,8 +24,12 @@ function boardSetup() {
 }
 
 function createTiles() {
-  var tileHTML=`<div class="tile-container">
-          <div class="tile"></div>
+  var tileHTML = 
+      `<div class="tile-container">
+          <div class="tile">
+            <div class="number">
+            </div>
+          </div>
         </div>`
   var tiles = [...Array(16)].map(_ => tileHTML)
   
@@ -43,6 +47,13 @@ function tileSetup() {
     container.style.backgroundPosition = `${backgroundPositionX}% ${backgroundPositionY}%`
     
     tileState['tileLoc'][container.id] = index
+    
+    var tileNumber = index + 1
+    var numberEl = container.querySelector('.number')
+    numberEl.innerText = tileNumber
+    numberEl.style.color = 'white'
+    numberEl.style.mixBlendMode = 'overlay'
+    
     
     container.addEventListener('click', function(e) {
       if (e.target !== this)
