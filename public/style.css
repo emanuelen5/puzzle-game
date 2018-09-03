@@ -36,7 +36,7 @@
 
 .tile {
   background-image: var(--img-url);
-  background-size: auto var(--game-height);
+  background-size: var(--game-width) var(--game-height);
   height:100%;
   width:100%;
   background-position: inherit;
