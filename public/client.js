@@ -34,6 +34,7 @@ function createTiles() {
 
 function tileSetup() {
   var tileContainerArray = document.querySelectorAll('.tile-container')
+  
   tileContainerArray.forEach(function(container,index) {
     var backgroundPositionX = (index % 4) * 100/3
     var backgroundPositionY = Math.floor(index/4) * 100/3
@@ -48,7 +49,10 @@ function tileSetup() {
     tileState['tileLoc'][container.id] = index
     
     container.addEventListener('click', function(e) {
-      moveTile(e.id)
+      if (e.target !== this)
+        e.target.parentElement.click()
+      else
+        moveTile(e.target.id)
     })
   })
   //TODO: make this user-customisable
@@ -65,7 +69,7 @@ window.onload = function() {
   boardSetup()
   createTiles()
   tileSetup()
-  testValidMoves()
+  //testValidMoves()
 }
 
 // Game play
