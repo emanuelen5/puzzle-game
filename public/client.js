@@ -99,8 +99,8 @@ function checkValidMove(tileLoc, nullLoc) {
 }
 
 function drawGame() {
-  tileState['tileLoc'].forEach(function(tile) {
-    
+  tileState['tileLoc'].map(function(tile) {
+    console.log(tile)
   });
 }
 
