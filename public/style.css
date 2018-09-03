@@ -30,6 +30,7 @@
   mix-blend-mode: difference;
   position: relative;
   padding: 0.25em;
+  font-size: 1.2em;
 }
 
 .tile {
