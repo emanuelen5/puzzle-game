@@ -13,11 +13,11 @@ function boardSetup() {
   if (gameAspectRatio > 1) {
     var maxViewportWidth = 90;
     gameArea.style.setProperty('--game-width', `${maxViewportWidth}vw`)
-    var height = Math.ceil(maxViewportWidth / gameAspectRatio)
+    var height = Math.floor(maxViewportWidth / gameAspectRatio)
     gameArea.style.setProperty('--game-height', `${height}vw`)
   } else {
     var maxViewportHeight = 80;
-    var width = Math.ceil(maxViewportHeight * gameAspectRatio)
+    var width = Math.floor(maxViewportHeight * gameAspectRatio)
     gameArea.style.setProperty('--game-width', `${width}vh`)
     gameArea.style.setProperty('--game-height', `${maxViewportHeight}vh`)
   }
