@@ -56,7 +56,7 @@ function tileSetup() {
       if (e.target !== this)
         e.target.parentElement.click()
       else
-        moveTile(e.target.id)
+        makePlay(e.target.id)
     })
   })
   //TODO: make this user-customisable
@@ -78,13 +78,14 @@ window.onload = function() {
 }
 
 // Game play
-function moveTile(tileId) {
+function makePlay(tileId) {
   var tileLoc = getTileLoc(tileId);
   var nullLoc = getNullLoc();
   if (checkValidMove(tileLoc, nullLoc)) {
     tileState['tileLoc'][tileId] = nullLoc
     tileState['nullLoc'] = tileLoc
     console.log(tileState)
+    moveTile();
     drawGame();
   }
 }
