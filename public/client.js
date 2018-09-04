@@ -82,11 +82,7 @@ function makePlay(tileId) {
   var tileLoc = getTileLoc(tileId);
   var nullLoc = getNullLoc();
   if (checkValidMove(tileLoc, nullLoc)) {
-    tileState['tileLoc'][tileId] = nullLoc
-    tileState['nullLoc'] = tileLoc
-    console.log(tileState)
-    moveTile();
-    drawGame();
+    moveTile(tileId, tileLoc, nullLoc);
   }
 }
 
@@ -102,6 +98,20 @@ function checkValidMove(tileLoc, nullLoc) {
   } else {
     return false;
   }
+}
+
+// TODO: Refactor Tile into a class that contains all of this information
+function moveTile(tileId, tileLoc, nullLoc) {
+  tileState['tileLoc'][tileId] = nullLoc
+  tileState['nullLoc'] = tileLoc
+  var tileEl = document.getElementById(tileId)
+  
+  tileEl.addEventListener('transitionend', function() {
+    tileEl.classList.remove('moving')
+    drawGame()
+  })
+  tileEl.classList.add('moving')
+  
 }
 
 function drawGame() {
