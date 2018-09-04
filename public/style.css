@@ -48,5 +48,5 @@
 }
 
 .tile-container.moving {
-  transition: transform 0.5s ease-out;'
+  transition: transform 0.2s ease-out;'
 }

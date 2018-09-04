@@ -111,7 +111,7 @@ function moveTile(tileId, tileLoc, nullLoc) {
     // Note: new rules are added at 0, so we know we can remove the rule we added earlier from position 0. 
     // We'll still check in case we had a race condition and it's already gone :)
     var cssRules = document.styleSheets[styleSheetIndex].cssRules
-    var styleRuleIndex = Object.keys(cssRules).find((key) => cssRules[key].selectorText === `#{tileId}.moving`)
+    var styleRuleIndex = Object.keys(cssRules).find((key) => cssRules[key].selectorText === `#${tileId}.moving`)
     if (styleRuleIndex) {
       console.log(`styleRule: ${document.styleSheets[styleSheetIndex].cssRules[styleRuleIndex]}`)
       document.styleSheets[styleSheetIndex].deleteRule(styleRuleIndex)
