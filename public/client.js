@@ -106,7 +106,9 @@ function moveTile(tileId, tileLoc, nullLoc) {
   tileState['nullLoc'] = tileLoc
   var tileEl = document.getElementById(tileId)
   
-  document.styleSheets[0].insertRule(rule);
+  var styleSheetIndex = 
+      Object.keys(document.styleSheets).filter((key) => document.styleSheets[key].href === 'https://sliding-photo-puzzle.glitch.me/style.css')
+  document.styleSheets[styleSheetIndex].insertRule(`#${tileId}.moving { transform: translateX(calc(100% + 3px)); }`);
   
   tileEl.addEventListener('transitionend', function() {
     tileEl.classList.remove('moving')
@@ -114,9 +116,10 @@ function moveTile(tileId, tileLoc, nullLoc) {
   })
   
   tileEl.classList.add('moving')
-  var movingTileEl = document.querySelector(`#${tileId}.moving`)
-  movingTileEl.style.transform = `translateX(calc(100% + 3px));`
-  movingTileEl.style.transition = 'transform 0.5s ease-out;'
+}
+
+function findAdjacencyDirection() {
+  re
 }
 
 function drawGame() {
