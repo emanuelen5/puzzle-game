@@ -77,7 +77,7 @@ window.onload = function() {
   createTiles()
   tileSetup()
   drawGame()
-  //testValidMoves()
+  // testValidMoves()
 }
 
 // Game play
@@ -167,15 +167,15 @@ function getNullLoc() {
 }
 
 function testValidMoves() {
-  console.log(`findAdjacencyDirection(1, 0) is []: ${findAdjacencyDirection(1, 0) === []}`)
-  console.log(`findAdjacencyDirection(1, 5) is []: ${findAdjacencyDirection(1, 5) === []}`)
+  console.log(`findAdjacencyDirection(1, 0) is [1, 0]: ${findAdjacencyDirection(1, 0)[0] === 1 && findAdjacencyDirection(1, 0)[1] === 0}`)
+  console.log(`findAdjacencyDirection(1, 5) is [0, -1]: ${findAdjacencyDirection(1, 5)[0] === 0 && findAdjacencyDirection(1, 5)[1] === -1}`)
   console.log(`findAdjacencyDirection(13, 5) is null: ${findAdjacencyDirection(13, 5) === null}`)
-  console.log(`findAdjacencyDirection(5, 1) is []: ${findAdjacencyDirection(5, 1) === []}`)
+  console.log(`findAdjacencyDirection(5, 1) is [0, 1]: ${findAdjacencyDirection(5, 1)[0] === 0 && findAdjacencyDirection(5, 1)[1] === 1}`)
   console.log(`findAdjacencyDirection(3, 4) is null: ${findAdjacencyDirection(3, 4) === null}`)
-  console.log(`findAdjacencyDirection(4, 5) is []: ${findAdjacencyDirection(4, 5) === []}`)
+  console.log(`findAdjacencyDirection(4, 5) is [-1, 0]: ${findAdjacencyDirection(4, 5)[0] === -1 && findAdjacencyDirection(4, 5)[1] === 0}`)
   console.log(`findAdjacencyDirection(8, 7) is null: ${findAdjacencyDirection(8, 7) === null}`)
-  console.log(`findAdjacencyDirection(9, 8) is []: ${findAdjacencyDirection(9, 8) === []}`)
-  console.log(`findAdjacencyDirection(1, 2) is []: ${findAdjacencyDirection(1, 2) === []}`)
-  console.log(`findAdjacencyDirection(6, 2) is []: ${findAdjacencyDirection(6, 2) === []}`)
+  console.log(`findAdjacencyDirection(9, 8) is [1, 0]: ${findAdjacencyDirection(9, 8)[0] === 1 && findAdjacencyDirection(9, 8)[1] === 0}`)
+  console.log(`findAdjacencyDirection(1, 2) is [-1, 0]: ${findAdjacencyDirection(1, 2)[0] === -1 && findAdjacencyDirection(1, 2)[1] === 0}`)
+  console.log(`findAdjacencyDirection(6, 2) is [0, 1]: ${findAdjacencyDirection(6, 2)[0] === 0 && findAdjacencyDirection(6, 2)[1] === 1}`)
   return true
 }
