@@ -94,14 +94,22 @@ function moveTile(tileId, tileLoc, nullLoc) {
   var tileEl = document.getElementById(tileId)
   
   var direction = findAdjacencyDirection(tileLoc, nullLoc)
-  var translateMatrix = `translate(${direction[0]*100}%, ${direction[1]*100}%`
+  // need to move the tile 100% of the x or y direction, plus 3px to allow for grid-gap
+  var moveX = `translateX(calc(${direction[0]*100}% + ${direction[0]*3}px))`
+  var moveY = `translateX(calc(${direction[1]*100}% + ${direction[1]*3}px))`
   
   var styleSheetIndex = 
       Object.keys(document.styleSheets).filter((key) => document.styleSheets[key].href === 'https://sliding-photo-puzzle.glitch.me/style.css')
-  document.styleSheets[styleSheetIndex].insertRule(`#${tileId}.moving { transform: translateX(calc(100% + 3px)); }`);
+  document.styleSheets[styleSheetIndex].insertRule(`#${tileId}.moving { 
+      transform: translateX(${moveX}); 
+      transform: translateY(${moveY}); 
+  }`);
   
   tileEl.addEventListener('transitionend', function() {
     tileEl.classList.remove('moving')
+    
+    // Note: new rules are added at 0, so we know we can remove the rule we added earlier from position 0
+    document.styleSheets[styleSheetIndex].deleteRule(0)
     drawGame()
   })
   
@@ -110,18 +118,18 @@ function moveTile(tileId, tileLoc, nullLoc) {
 
 function findAdjacencyDirection(tileLoc, nullLoc) {
   /* Return an x or y direction relative to the null space if the tile is adjacent, or if it isn't then return null
-          -y
-     -x  null  x
-           y
+             [0, -1]
+     [-1, 0]  null  [1, 0]
+             [0, 1]
   */
   if ((tileLoc - nullLoc) === 4) {
-    return 'y';
+    return [0, 1];
   } else if ((tileLoc - nullLoc) === -4) {
-    return '-y';
+    return [0, -1];
   } else if ((tileLoc - nullLoc) === 1 && (tileLoc % 4 !== 0) ) {
-    return 'x';
+    return [1, 0];
   } else if ((tileLoc - nullLoc) === -1 && (tileLoc % 4 !== 3) ) {
-    return '-x';
+    return [-1, 0];
   } else return null
 }
 
