@@ -81,7 +81,7 @@ window.onload = function() {
 function makePlay(tileId) {
   var tileLoc = getTileLoc(tileId);
   var nullLoc = getNullLoc();
-    console.log(findAdjacencyDirection(tileLoc, nullLoc))
+  
   if (findAdjacencyDirection(tileLoc, nullLoc)) {
     moveTile(tileId, tileLoc, nullLoc);
   }
@@ -92,6 +92,9 @@ function moveTile(tileId, tileLoc, nullLoc) {
   tileState['tileLoc'][tileId] = nullLoc
   tileState['nullLoc'] = tileLoc
   var tileEl = document.getElementById(tileId)
+  
+  var direction = findAdjacencyDirection(tileLoc, nullLoc)
+  var translateMatrix = `translate(${direction[0]*100}%, ${direction[1]*100}%`
   
   var styleSheetIndex = 
       Object.keys(document.styleSheets).filter((key) => document.styleSheets[key].href === 'https://sliding-photo-puzzle.glitch.me/style.css')
@@ -106,19 +109,19 @@ function moveTile(tileId, tileLoc, nullLoc) {
 }
 
 function findAdjacencyDirection(tileLoc, nullLoc) {
-  /* Return an [x, y] coordinate relative to the null space if the tile is adjacent, or if it isn't then return null
-             [0, -1]
-     [-1, 0]       
-             [0, 1]
+  /* Return an x or y direction relative to the null space if the tile is adjacent, or if it isn't then return null
+          -y
+     -x  null  x
+           y
   */
   if ((tileLoc - nullLoc) === 4) {
-    return [0, -1];
+    return 'y';
   } else if ((tileLoc - nullLoc) === -4) {
-    return [0, 1];
+    return '-y';
   } else if ((tileLoc - nullLoc) === 1 && (tileLoc % 4 !== 0) ) {
-    return [1, 0];
+    return 'x';
   } else if ((tileLoc - nullLoc) === -1 && (tileLoc % 4 !== 3) ) {
-    return [0, 1];
+    return '-x';
   } else return null
 }
 
