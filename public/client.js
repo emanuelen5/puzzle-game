@@ -53,10 +53,13 @@ function tileSetup() {
     
     
     container.addEventListener('click', function(e) {
-      if (e.target !== this)
-        e.target.parentElement.click()
-      else
-        makePlay(e.target.id)
+      if (document.querySelectorAll('.moving').length === 0) {
+        if (e.target !== this) {
+          e.target.parentElement.click()
+        } else {
+          makePlay(e.target.id)
+        }
+      }
     })
   })
   //TODO: make this user-customisable
