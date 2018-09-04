@@ -95,14 +95,13 @@ function moveTile(tileId, tileLoc, nullLoc) {
   
   var direction = findAdjacencyDirection(tileLoc, nullLoc)
   // need to move the tile 100% of the x or y direction, plus 3px to allow for grid-gap
-  var moveX = `translateX(calc(${direction[0]*100}% + ${direction[0]*3}px))`
-  var moveY = `translateY(calc(${direction[1]*100}% + ${direction[1]*3}px))`
+  var moveX = `calc(${direction[0]*-100}% + ${direction[0]*-3}px)`
+  var moveY = `calc(${direction[1]*-100}% + ${direction[1]*-3}px)`
   
   var styleSheetIndex = 
       Object.keys(document.styleSheets).filter((key) => document.styleSheets[key].href === 'https://sliding-photo-puzzle.glitch.me/style.css')
   document.styleSheets[styleSheetIndex].insertRule(`#${tileId}.moving { 
-      transform: ${moveX}; 
-      transform: ${moveY}; 
+      transform: translate(${moveX}, ${moveY}); 
   }`);
   
   tileEl.addEventListener('transitionend', function() {
