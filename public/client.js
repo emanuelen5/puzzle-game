@@ -110,8 +110,10 @@ function moveTile(tileId, tileLoc, nullLoc) {
     tileEl.classList.remove('moving')
     drawGame()
   })
-  tileEl.classList.add('moving')
   
+  tileEl.classList.add('moving')
+  var movingTileEl = document.querySelector(`#${tileId}.moving`)
+  movingTileEl.style.transform = `translateX(calc(100% + 3px));`
 }
 
 function drawGame() {

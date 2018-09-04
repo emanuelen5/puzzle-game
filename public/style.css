@@ -48,6 +48,5 @@
 }
 
 .tile-container.moving {
-  transform: translateX(calc(100% + 3px));
   transition: transform 0.5s ease-out;
 }
