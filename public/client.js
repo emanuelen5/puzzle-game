@@ -81,22 +81,9 @@ window.onload = function() {
 function makePlay(tileId) {
   var tileLoc = getTileLoc(tileId);
   var nullLoc = getNullLoc();
-  if (checkValidMove(tileLoc, nullLoc)) {
+    console.log(findAdjacencyDirection(tileLoc, nullLoc))
+  if (findAdjacencyDirection(tileLoc, nullLoc)) {
     moveTile(tileId, tileLoc, nullLoc);
-  }
-}
-
-function checkValidMove(tileLoc, nullLoc) {
-  // Check if they're directly vertically above or below each other
-  if (Math.abs((tileLoc - nullLoc)) === 4) {
-    return true;
-  } 
-  // Check if they're next to each other on the same row
-  else if (Math.abs(tileLoc - nullLoc) === 1 && 
-           [tileLoc % 4, nullLoc % 4].some(val => ![0,3].includes(val) )) {
-    return true;
-  } else {
-    return false;
   }
 }
 
@@ -118,8 +105,21 @@ function moveTile(tileId, tileLoc, nullLoc) {
   tileEl.classList.add('moving')
 }
 
-function findAdjacencyDirection() {
-  re
+function findAdjacencyDirection(tileLoc, nullLoc) {
+  /* Return an [x, y] coordinate relative to the null space if the tile is adjacent, or if it isn't then return null
+             [0, -1]
+     [-1, 0]       
+             [0, 1]
+  */
+  if ((tileLoc - nullLoc) === 4) {
+    return [0, -1];
+  } else if ((tileLoc - nullLoc) === -4) {
+    return [0, 1];
+  } else if ((tileLoc - nullLoc) === 1 && (tileLoc % 4 !== 0) ) {
+    return [1, 0];
+  } else if ((tileLoc - nullLoc) === -1 && (tileLoc % 4 !== 3) ) {
+    return [0, 1];
+  } else return null
 }
 
 function drawGame() {
