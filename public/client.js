@@ -102,20 +102,21 @@ function moveTile(tileId, tileLoc, nullLoc) {
   var moveY = `calc(${direction[1]*-100}% + ${direction[1]*-3}px)`
   
   var styleSheetIndex = 
-      Object.keys(document.styleSheets).filter((key) => document.styleSheets[key].href === 'https://sliding-photo-puzzle.glitch.me/style.css')
+      Object.keys(document.styleSheets).find((key) => document.styleSheets[key].href === 'https://sliding-photo-puzzle.glitch.me/style.css')
   document.styleSheets[styleSheetIndex].insertRule(`#${tileId}.moving { 
       transform: translate(${moveX}, ${moveY}); 
   }`);
   
   tileEl.addEventListener('transitionend', function() {
-    
     // Note: new rules are added at 0, so we know we can remove the rule we added earlier from position 0. 
     // We'll still check in case we had a race condition and it's already gone :)
     var cssRules = document.styleSheets[styleSheetIndex].cssRules
-    var styleRuleIndex = Object.keys(cssRules).filter((key) => cssRules[key].selectorText === `#container-3.moving`)
+    var styleRuleIndex = Object.keys(cssRules).find((key) => cssRules[key].selectorText === `#{tileId}.moving`)
     if (styleRuleIndex) {
+      console.log(`styleRule: ${document.styleSheets[styleSheetIndex].cssRules[styleRuleIndex]}`)
       document.styleSheets[styleSheetIndex].deleteRule(styleRuleIndex)
     }
+    console.log(`styleRuleIndex: ${styleRuleIndex}`)
     
     tileEl.classList.remove('moving')
     drawGame()
