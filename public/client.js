@@ -81,7 +81,7 @@ window.onload = function() {
 function makePlay(tileId) {
   var tileLoc = getTileLoc(tileId);
   var nullLoc = getNullLoc();
-  
+  console.log(findAdjacencyDirection(tileLoc, nullLoc))
   if (findAdjacencyDirection(tileLoc, nullLoc)) {
     moveTile(tileId, tileLoc, nullLoc);
   }
@@ -96,13 +96,13 @@ function moveTile(tileId, tileLoc, nullLoc) {
   var direction = findAdjacencyDirection(tileLoc, nullLoc)
   // need to move the tile 100% of the x or y direction, plus 3px to allow for grid-gap
   var moveX = `translateX(calc(${direction[0]*100}% + ${direction[0]*3}px))`
-  var moveY = `translateX(calc(${direction[1]*100}% + ${direction[1]*3}px))`
+  var moveY = `translateY(calc(${direction[1]*100}% + ${direction[1]*3}px))`
   
   var styleSheetIndex = 
       Object.keys(document.styleSheets).filter((key) => document.styleSheets[key].href === 'https://sliding-photo-puzzle.glitch.me/style.css')
   document.styleSheets[styleSheetIndex].insertRule(`#${tileId}.moving { 
-      transform: translateX(${moveX}); 
-      transform: translateY(${moveY}); 
+      transform: ${moveX}; 
+      transform: ${moveY}; 
   }`);
   
   tileEl.addEventListener('transitionend', function() {
