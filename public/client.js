@@ -94,14 +94,12 @@ function randomizeTiles() {
       --currentIndex
   }
   
-  // Puzzles with an odd number of swaps are unsolvable, so adding one 
-  if (tileLocValues.length % 2 === 1) {
-    var startPos = tileLocValues[0]
-    var endPos = tileLocValues[tileLocValues.length - 1]
-    currentElement = startPos
-    startPos = endPos
-    endPos = currentElement
-  }
+  // Puzzles with an odd number of swaps are unsolvable, so adding one final switch to make it solvable.
+  var startPos = tileLocValues[0]
+  var endPos = tileLocValues[tileLocValues.length - 1]
+  currentElement = startPos
+  startPos = endPos
+  endPos = currentElement
   
   // use the shuffled array to set new locations for tiles
   var newPosition
