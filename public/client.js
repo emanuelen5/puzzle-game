@@ -73,14 +73,18 @@ function deleteTile(tileId) {
 }
 
 function randomizeTiles() {
-  // Implement in-place Fisher-Yates Shuffle as described here:
+  // Implement in-place Fisher-Yates Shuffle on the locations as described here:
   // https://bost.ocks.org/mike/shuffle/
   
-  var tileLocs = getTileLocs()
+  var tileLocs = Object.values(getTileLocs())
   var currentIndex = tileLocs.length
+  var randomIndex
   
-  for (var tileLoc in tileLocs) {
-    newLocs
+  while (currentIndex > 0) {
+    randomIndex = Math.floor(Math.rand*currentIndex)
+    tileLocs.splice
+    tileLocs[randomIndex] tileLocs[currentIndex]
+    --currentIndex
   }
 }
 
