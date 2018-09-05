@@ -58,5 +58,5 @@ footer #attribution {
 }
 
 .tile-container.moving {
-  transition: transform 0.2s ease-out;'
+  transition: transform 0.15s ease-in;'
 }
