@@ -73,7 +73,11 @@ function deleteTile(tileId) {
 }
 
 function randomizeTiles() {
-  
+  var tileLocs = getTileLocs
+  var newLocs = {}
+  for (var tileLoc in tileLocs) {
+    newLocs
+  }
 }
 
 window.onload = function() {
@@ -168,10 +172,12 @@ function getTileLoc(tileId) {
 }
 
 function getTileLocs() {
-  return
+  return tileState['tileLoc']
 }
 
-function setTileLocs() {}
+function setTileLocs(tileLocs) {
+
+}
   
 function getNullLoc() {
   return tileState['nullLoc']
