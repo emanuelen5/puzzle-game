@@ -73,7 +73,7 @@ function deleteTile(tileId) {
 }
 
 function randomizeTiles() {
-  var tileLocs = getTileLocs
+  var tileLocs = getTileLocs()
   var newLocs = {}
   for (var tileLoc in tileLocs) {
     newLocs
