@@ -80,7 +80,7 @@ function randomizeTiles() {
   // https://bost.ocks.org/mike/shuffle/
   var tileLocs = getTileLocs()
   var tileLocValues = Object.values(tileLocs)
-  var currentIndex = tileLocValues.length
+  var currentIndex = tileLocValues.length - 1
   var randomIndex
   var currentElement
   
