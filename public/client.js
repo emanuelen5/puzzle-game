@@ -94,9 +94,9 @@ function randomizeTiles() {
   
   // use the shuffled array to set new locations for tiles
   var newPosition
-  for (var tileLoc in tileLocs) {
+  for (var key in tileLocs) {
     newPosition = tileLocValues.pop()
-    tileLoc = newPosition
+    tileLocs[key] = newPosition
   }
   
   //for tile
@@ -175,7 +175,7 @@ function findAdjacencyDirection(tileLoc, nullLoc) {
 }
 
 function drawGame() {
-  var tiles = tileState['tileLoc']
+  var tiles = getTileLocs()
   for (var key in tiles) {
     var tileLoc = tiles[key]
     
@@ -199,7 +199,7 @@ function getTileLocs() {
 }
 
 function setTileLocs(tileLocs) {
-
+  tileState['tileLoc'] = tileLocs
 }
   
 function getNullLoc() {
