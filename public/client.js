@@ -72,10 +72,15 @@ function deleteTile(tileId) {
   tileState['tileLoc'][tileId] = null
 }
 
+function randomizeTiles() {
+  
+}
+
 window.onload = function() {
   boardSetup()
   createTiles()
   tileSetup()
+  randomizeTiles()
   drawGame()
   // testValidMoves()
 }
@@ -161,6 +166,12 @@ function drawGame() {
 function getTileLoc(tileId) {
   return tileState['tileLoc'][tileId]
 }
+
+function getTileLocs() {
+  return
+}
+
+function setTileLocs() {}
   
 function getNullLoc() {
   return tileState['nullLoc']
