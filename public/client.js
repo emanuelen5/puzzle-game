@@ -89,9 +89,9 @@ function randomizeTiles() {
     currentElement = tileLocValues[currentIndex]
     randomIndex = Math.floor(Math.random()*currentIndex)
     
-    
-    tileLocValues.splice(currentIndex, 1, tileLocValues[randomIndex])
-    tileLocValues[randomIndex] = currentElement
+    if (currentElement) {
+      tileLocValues.splice(currentIndex, 1, tileLocValues[randomIndex])
+      tileLocValues[randomIndex] = currentElement
     } else {
       newNullLoc = randomIndex
       // remove item without moving it to the back, because we don't want to change the tile that's not drawn
