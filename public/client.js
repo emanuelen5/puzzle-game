@@ -71,7 +71,7 @@ function tileSetup() {
 function deleteTile(tileId) {
   document.getElementById(tileId).remove()
   tileState['nullLoc'] = tileState['tileLoc'][tileId]
-  tileState['tileLoc'][tileId] = null
+  delete tileState['tileLoc'][tileId]
 }
 
 function randomizeTiles() {
@@ -83,36 +83,26 @@ function randomizeTiles() {
   var currentIndex = tileLocValues.length
   var randomIndex
   var currentElement
-  var newNullLoc
   
   while (currentIndex > 0) {
     currentElement = tileLocValues[currentIndex]
     randomIndex = Math.floor(Math.random()*currentIndex)
     
-    if (currentElement) {
-      tileLocValues.splice(currentIndex, 1, tileLocValues[randomIndex])
-      tileLocValues[randomIndex] = currentElement
-    } else {
-      newNullLoc = randomIndex
-      // remove item without moving it to the back, because we don't want to change the tile that's not drawn
-      tileLocValues.splice(currentIndex, 1)
-    }
-    
-    --currentIndex
+    tileLocValues.splice(currentIndex, 1, tileLocValues[randomIndex])
+    tileLocValues[randomIndex] = currentElement
+
+      --currentIndex
   }
   
   // use the shuffled array to set new locations for tiles
   var newPosition
   for (var key in tileLocs) {
-    // don't change the location of the non-rendered tile
-    if (tileLocs[key]) {
-      newPosition = tileLocValues.pop()
-      tileLocs[key] = newPosition
-    }
+    newPosition = tileLocValues.pop()
+    tileLocs[key] = newPosition
   }
   
   //for tile
-  setTileLocs(tileLocs, newNullLoc)
+  setTileLocs(tileLocs)
 }
 
 window.onload = function() {
@@ -210,9 +200,8 @@ function getTileLocs() {
   return tileState['tileLoc']
 }
 
-function setTileLocs(tileLocs, nullLoc) {
+function setTileLocs(tileLocs) {
   tileState['tileLoc'] = tileLocs
-  tileState['nullLoc'] = nullLoc
 }
   
 function getNullLoc() {
