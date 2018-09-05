@@ -40,8 +40,10 @@ function tileSetup() {
   var tileContainerArray = document.querySelectorAll('.tile-container')
   
   tileContainerArray.forEach(function(container,index) {
-    var backgroundPositionX = (index % 4) * 100/3
-    var backgroundPositionY = Math.floor(index/4) * 100/3
+    // inexplicably, Chrome Android browser does not like it when some background image positions are set to 100%.
+    // therefore capping this to 99.6%, which seems to display ok
+    var backgroundPositionX = (index % 4) * 99.6/3
+    var backgroundPositionY = Math.floor(index/4) * 99.6/3
     
     container.id = `container-${index}`
     container.style.backgroundPosition = `${backgroundPositionX}% ${backgroundPositionY}%`
