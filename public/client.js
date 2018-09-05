@@ -77,7 +77,7 @@ function randomizeTiles() {
   // Implement in-place Fisher-Yates Shuffle on the location values as described here:
   // https://bost.ocks.org/mike/shuffle/
   var tileLocs = getTileLocs()
-  var tileLocValues = Object.values(tileLocs).filter((val) => 
+  var tileLocValues = Object.values(tileLocs)
   var currentIndex = tileLocValues.length
   var randomIndex
   var currentElement
@@ -87,8 +87,14 @@ function randomizeTiles() {
     currentElement = tileLocValues[currentIndex]
     randomIndex = Math.floor(Math.random()*currentIndex)
     
+    
     tileLocValues.splice(currentIndex, 1, tileLocValues[randomIndex])
     tileLocValues[randomIndex] = currentElement
+    } else {
+      newNullLoc = randomIndex
+      // remove item without moving it to the back, because we don't want to change the tile that's not drawn
+      tileLocValues.splice(currentIndex, 1)
+    }
     
     --currentIndex
   }
