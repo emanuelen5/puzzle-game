@@ -105,6 +105,7 @@ function automaticMove() {
     tileState['tileLoc'][candidateTileId] = nullLoc
     tileState['nullLoc'] = validMoves[candidateTileId]
   }
+  return null
 }
 
 function checkGameWon() {
