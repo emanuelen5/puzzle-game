@@ -74,33 +74,29 @@ function deleteTile(tileId) {
   delete tileState['tileLoc'][tileId]
 }
 
-function randomizeTiles() {
-  if (document.querySelector
-  var nullLoc = getNullLoc();
-  var tileLocs = getTileLocs();
-  
-  var validMoves = {}
-  
-  for (var key in tileLocs) {
-    if(findAdjacencyDirection(tileLocs[key], nullLoc))
-      validMoves[key] = tileLocs[key]
-  }
-  var candidateTileId = Object.keys(validMoves)[Math.floor(Math.random() * Object.keys(validMoves).length)]
-  
-  moveTile(candidateTileId, validMoves[candidateTileId], nullLoc)
+function automaticMove() {
+  if (document.querySelectorAll('.moving').length === 0) {
+    var nullLoc = getNullLoc();
+    var tileLocs = getTileLocs();
+
+    var validMoves = {}
+
+    for (var key in tileLocs) {
+      if(findAdjacencyDirection(tileLocs[key], nullLoc))
+        validMoves[key] = tileLocs[key]
+    }
+    var candidateTileId = Object.keys(validMoves)[Math.floor(Math.random() * Object.keys(validMoves).length)]
+
+    moveTile(candidateTileId, validMoves[candidateTileId], nullLoc)
+    return true
+  } else setTimeout(200, randomizeTiles())
 }
 
-window.onload = function() {
+window.onload = () => {
   boardSetup()
   createTiles()
   tileSetup()
   drawGame()
-  
-  var count = 25
-  while (count > 0) {
-    --count
-    randomizeTiles(() => next)
-  }
   // testValidMoves()
 }
 
