@@ -75,41 +75,17 @@ function deleteTile(tileId) {
 }
 
 function randomizeTiles() {
+  var nullLoc = getNullLoc();
+  var tileLocs = getTileLocs();
   
-  // Implement in-place Fisher-Yates Shuffle on the location values as described here:
-  // https://bost.ocks.org/mike/shuffle/
-  var tileLocs = getTileLocs()
-  var tileLocValues = Object.values(tileLocs)
-  var currentIndex = tileLocValues.length - 1
-  var randomIndex
-  var currentElement
+  var validMoves = {}
   
-  while (currentIndex > 0) {
-    currentElement = tileLocValues[currentIndex]
-    randomIndex = Math.floor(Math.random()*currentIndex)
-    
-    tileLocValues.splice(currentIndex, 1, tileLocValues[randomIndex])
-    tileLocValues[randomIndex] = currentElement
-
-      --currentIndex
-  }
+  tileLocs.forEach((key, val) => {
+    ifindAdjacencyDirection(val, nullLoc)
+  })
+  var candidateTile = validMoves[Math.floor(Math.random * validMoves.length)]
   
-  // Puzzles with an odd number of swaps are unsolvable, so adding one final switch to make it solvable.
-  var startPos = tileLocValues[0]
-  var endPos = tileLocValues[tileLocValues.length - 1]
-  currentElement = startPos
-  startPos = endPos
-  endPos = currentElement
-  
-  // use the shuffled array to set new locations for tiles
-  var newPosition
-  for (var key in tileLocs) {
-    newPosition = tileLocValues.pop()
-    tileLocs[key] = newPosition
-  }
-  
-  //for tile
-  setTileLocs(tileLocs)
+  moveTile(candidateTile.key, candidateTile.value, nullLoc)
 }
 
 window.onload = function() {
