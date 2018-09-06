@@ -77,13 +77,13 @@ function deleteTile(tileId) {
 function randomizeBoard() { 
   console.log('randomising')
   var count = 25
-  if (count > 0) {
-    automaticMove(randomizeBoard)
+  while (count > 0) {
+    automaticMove()
     --count
   }
 }
 
-function automaticMove(callback) {
+function automaticMove() {
   if (document.querySelectorAll('.moving').length === 0) {
     var nullLoc = getNullLoc();
     var tileLocs = getTileLocs();
@@ -96,9 +96,11 @@ function automaticMove(callback) {
     }
     var candidateTileId = Object.keys(validMoves)[Math.floor(Math.random() * Object.keys(validMoves).length)]
 
-    moveTile(candidateTileId, validMoves[candidateTileId], nullLoc)
     
-    callback()
+    tileState['tileLoc'][candidateTileId] = nullLoc
+    tileState['nullLoc'] = validMoves[candidateTileId]
+    
+    drawGame()
   }
 }
 
@@ -124,6 +126,7 @@ function makePlay(tileId) {
 function moveTile(tileId, tileLoc, nullLoc) {
   tileState['tileLoc'][tileId] = nullLoc
   tileState['nullLoc'] = tileLoc
+  
   var tileEl = document.getElementById(tileId)
   
   var direction = findAdjacencyDirection(tileLoc, nullLoc)
