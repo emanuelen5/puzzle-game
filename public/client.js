@@ -148,7 +148,7 @@ function moveTile(tileId, tileLoc, nullLoc) {
   var moveY = `calc(${direction[1]*-100}% + ${direction[1]*-3}px)`
   
   var styleSheetIndex = 
-      Object.keys(document.styleSheets).find((key) => document.styleSheets[key].href === 'https://sliding-photo-puzzle.glitch.me/style.css')
+      Object.keys(document.styleSheets).find((key) => document.styleSheets[key].href.includes('/style.css'))
   document.styleSheets[styleSheetIndex].insertRule(`#${tileId}.moving { 
       transform: translate(${moveX}, ${moveY}); 
   }`);
