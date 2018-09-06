@@ -75,6 +75,7 @@ function deleteTile(tileId) {
 }
 
 function randomizeTiles() {
+  if (document.querySelector
   var nullLoc = getNullLoc();
   var tileLocs = getTileLocs();
   
@@ -87,7 +88,6 @@ function randomizeTiles() {
   var candidateTileId = Object.keys(validMoves)[Math.floor(Math.random() * Object.keys(validMoves).length)]
   
   moveTile(candidateTileId, validMoves[candidateTileId], nullLoc)
-  return
 }
 
 window.onload = function() {
@@ -98,8 +98,8 @@ window.onload = function() {
   
   var count = 25
   while (count > 0) {
-    randomizeTiles()
     --count
+    randomizeTiles(() => next)
   }
   // testValidMoves()
 }
