@@ -34,10 +34,7 @@ function createTiles() {
         </div>`
   var tiles = [...Array(16)].map(_ => tileHTML)
   
-  gameArea.innerHTML = tiles.join("") +         `<div id="winning-animation" style="
-          grid-area: 1/1/5/5;
-          animation: winning-animation 6.5s linear infinite;
-          "></div>`
+  gameArea.innerHTML = tiles.join("")
 }
 
 function tileSetup() {
@@ -81,7 +78,9 @@ function deleteTile(tileId) {
 }
 
 function randomizeBoard() { 
-  var count = 100
+  document.body.classList.remove('winning-animation')
+
+  var count = 1
   while (count > 0) {
     automaticMove()
     --count
@@ -133,8 +132,8 @@ function makePlay(tileId) {
     moveTile(tileId, tileLoc, nullLoc);
   }
   if (checkGameWon()) {
-    document.getElementById('game-won').style.display = 'block'
     document.getElementById('randomize-button').style.display = 'block'
+    document.body.classList.add('winning-animation')
   }
 }
 

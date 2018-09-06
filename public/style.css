@@ -74,15 +74,23 @@ footer {
 }
 
 .tile-container.moving {
-  transition: transform 0.15s ease-in;'
+  transition: transform 0.15s ease-in;
 }
 
-#winning-animation {
-  background: linear-gradient(#e66465, #9198e5);
+body.winning-animation {
+  background: linear-gradient(269deg, #28c69e, #d07ce8);
+  background-size: 400% 400%;
+  -webkit-animation: winning-animation 1s ease infinite;
+  animation: winning-animation 1s ease infinite;
 }
 
-@keyframes winning-animation {
-  100% {
-      background-position: -600% center;
-  }
+@-webkit-keyframes winning-animation {
+    0%{background-position:0% 52%}
+    50%{background-position:100% 49%}
+    100%{background-position:0% 52%}
+}
+@keyframes winning-animation { 
+    0%{background-position:0% 52%}
+    50%{background-position:100% 49%}
+    100%{background-position:0% 52%}
 }
