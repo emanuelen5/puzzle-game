@@ -18,7 +18,7 @@ footer {
   width: 100%;
 }
 
- #randomize-button {
+#randomize-button {
   width: 30vw;
   margin: 1em auto;
   text-align: center;
@@ -26,6 +26,7 @@ footer {
   border-radius: 3px;
   padding: 0.5em;
   box-shadow: 1px 1px darkblue;
+  color: white;
 }
 
 
