@@ -16,7 +16,7 @@ footer {
   width: 100%;
 }
 
-footer #attribution {
+#game-won, #randomize-button {
   width: 50vw;
   margin: 1em auto;
   text-align: center;

@@ -74,17 +74,17 @@ function deleteTile(tileId) {
   document.getElementById(tileId).remove()
   tileState['nullLoc'] = tileState['tileLoc'][tileId]
   delete tileState['tileLoc'][tileId]
-  detele
+  delete gameWon[tileId]
 }
 
 function randomizeBoard() { 
-  var count = 1
+  var count = 100
   while (count > 0) {
     automaticMove()
     --count
   }
   drawGame()
-  document.getElementById('randomize-button').remove()
+  document.getElementById('randomize-button').style.display = 'none'
 }
 
 function automaticMove() {
@@ -108,10 +108,11 @@ function automaticMove() {
 }
 
 function checkGameWon() {
-  return Object.keys(tileState['tileLoc']).every((key) => tileState[key] ===  gameWon[key])
+  return Object.keys(tileState['tileLoc']).every((key) => tileState['tileLoc'][key] ===  gameWon[key])
 }
 
 window.onload = () => {
+  document.getElementById('game-won').style.display = 'none'
   boardSetup()
   createTiles()
   tileSetup()
@@ -127,7 +128,10 @@ function makePlay(tileId) {
   if (findAdjacencyDirection(tileLoc, nullLoc)) {
     moveTile(tileId, tileLoc, nullLoc);
   }
-  console.log(checkGameWon())
+  if (checkGameWon()) {
+    document.getElementById('game-won').style.display = 'block'
+    document.getElementById('randomize-button').style.display = 'block'
+  }
 }
 
 // TODO: Refactor Tile into a class that contains all of this information
