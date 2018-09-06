@@ -5,6 +5,7 @@ var tileState = {
   tileLoc: {},
   nullLoc: ''
 };
+var gameWon = {}
 
 function boardSetup() {
   var gameAspectRatio = img.naturalWidth / img.naturalHeight
@@ -49,6 +50,7 @@ function tileSetup() {
     container.style.backgroundPosition = `${backgroundPositionX}% ${backgroundPositionY}%`
     
     tileState['tileLoc'][container.id] = index
+    gameWon[container.id] = index
     
     var tileNumber = index + 1
     container.querySelector('.number').innerText = tileNumber
@@ -72,18 +74,21 @@ function deleteTile(tileId) {
   document.getElementById(tileId).remove()
   tileState['nullLoc'] = tileState['tileLoc'][tileId]
   delete tileState['tileLoc'][tileId]
+  detele
 }
 
 function randomizeBoard() { 
-  console.log('randomising')
-  var count = 25
+  var count = 1
   while (count > 0) {
     automaticMove()
     --count
   }
+  drawGame()
+  document.getElementById('randomize-button').remove()
 }
 
 function automaticMove() {
+  console.log('randomising')
   if (document.querySelectorAll('.moving').length === 0) {
     var nullLoc = getNullLoc();
     var tileLocs = getTileLocs();
@@ -99,9 +104,11 @@ function automaticMove() {
     
     tileState['tileLoc'][candidateTileId] = nullLoc
     tileState['nullLoc'] = validMoves[candidateTileId]
-    
-    drawGame()
   }
+}
+
+function checkGameWon() {
+  return Object.keys(tileState['tileLoc']).every((key) => tileState[key] ===  gameWon[key])
 }
 
 window.onload = () => {
@@ -120,6 +127,7 @@ function makePlay(tileId) {
   if (findAdjacencyDirection(tileLoc, nullLoc)) {
     moveTile(tileId, tileLoc, nullLoc);
   }
+  console.log(checkGameWon())
 }
 
 // TODO: Refactor Tile into a class that contains all of this information
