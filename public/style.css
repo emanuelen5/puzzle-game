@@ -10,15 +10,31 @@
 * {
   box-sizing: border-box;
   font-family: sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 footer {
   width: 100%;
 }
 
-#game-won, #randomize-button {
-  width: 50vw;
+ #randomize-button {
+  width: 30vw;
   margin: 1em auto;
+  text-align: center;
+  background: cadetblue;
+  border-radius: 3px;
+  padding: 0.5em;
+  box-shadow: 2px 2px darkgrey;
+}
+
+
+#game-won {
+  border-radius: 3px;
+  display: block;
+  background-color: cornflowerblue;
+  padding: 0.5em;
+  width: 100%;
   text-align: center;
 }
 
@@ -29,7 +45,7 @@ footer {
   grid-template-columns: repeat(4, 1fr);
   
   position: relative;
-  margin: auto;
+  margin: 1em auto;
   
   width: var(--game-width);
   height: var(--game-height);
