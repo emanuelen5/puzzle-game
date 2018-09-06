@@ -80,7 +80,7 @@ function deleteTile(tileId) {
 function randomizeBoard() { 
   document.body.classList.remove('winning-animation')
 
-  var count = 10
+  var count = 100
   while (count > 0) {
     automaticMove()
     --count
