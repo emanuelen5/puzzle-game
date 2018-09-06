@@ -80,10 +80,11 @@ function randomizeTiles() {
   
   var validMoves = {}
   
-  tileLocs.forEach((key, val) => {
-    ifindAdjacencyDirection(val, nullLoc)
-  })
-  var candidateTile = validMoves[Math.floor(Math.random * validMoves.length)]
+  for (var key in tileLocs) {
+    if(findAdjacencyDirection(tileLocs[key], nullLoc))
+      validMoves[key] = tileLocs[key]
+  }
+  var candidateTile = validMoves[Object.keys(validMoves)[Math.floor(Math.random() * Object.keys(validMoves).length)]]
   
   moveTile(candidateTile.key, candidateTile.value, nullLoc)
 }
