@@ -84,17 +84,23 @@ function randomizeTiles() {
     if(findAdjacencyDirection(tileLocs[key], nullLoc))
       validMoves[key] = tileLocs[key]
   }
-  var candidateTile = validMoves[Object.keys(validMoves)[Math.floor(Math.random() * Object.keys(validMoves).length)]]
+  var candidateTileId = Object.keys(validMoves)[Math.floor(Math.random() * Object.keys(validMoves).length)]
   
-  moveTile(candidateTile.key, candidateTile.value, nullLoc)
+  moveTile(candidateTileId, validMoves[candidateTileId], nullLoc)
+  return
 }
 
 window.onload = function() {
   boardSetup()
   createTiles()
   tileSetup()
-  randomizeTiles()
   drawGame()
+  
+  var count = 25
+  while (count > 0) {
+    randomizeTiles()
+    --count
+  }
   // testValidMoves()
 }
 
