@@ -34,7 +34,10 @@ function createTiles() {
         </div>`
   var tiles = [...Array(16)].map(_ => tileHTML)
   
-  gameArea.innerHTML = tiles.join("")
+  gameArea.innerHTML = tiles.join("") +         `<div id="winning-animation" style="
+          grid-area: 1/1/5/5;
+          animation: winning-animation 6.5s linear infinite;
+          "></div>`
 }
 
 function tileSetup() {

@@ -77,6 +77,10 @@ footer {
   transition: transform 0.15s ease-in;'
 }
 
+#winning-animation {
+  background: linear-gradient(#e66465, #9198e5);
+}
+
 @keyframes winning-animation {
   100% {
       background-position: -600% center;
