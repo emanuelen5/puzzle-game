@@ -113,11 +113,11 @@ function checkGameWon() {
 }
 
 window.onload = () => {
-  document.getElementById('game-won').style.display = 'none'
   boardSetup()
   createTiles()
   tileSetup()
   drawGame()
+  document.getElementById('randomize-button').style.display = 'block'
   // testValidMoves()
 }
 
