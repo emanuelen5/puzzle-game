@@ -74,7 +74,16 @@ function deleteTile(tileId) {
   delete tileState['tileLoc'][tileId]
 }
 
-function automaticMove() {
+function randomizeBoard() { 
+  console.log('randomising')
+  var count = 25
+  if (count > 0) {
+    automaticMove(randomizeBoard)
+    --count
+  }
+}
+
+function automaticMove(callback) {
   if (document.querySelectorAll('.moving').length === 0) {
     var nullLoc = getNullLoc();
     var tileLocs = getTileLocs();
@@ -88,8 +97,9 @@ function automaticMove() {
     var candidateTileId = Object.keys(validMoves)[Math.floor(Math.random() * Object.keys(validMoves).length)]
 
     moveTile(candidateTileId, validMoves[candidateTileId], nullLoc)
-    return true
-  } else setTimeout(200, randomizeTiles())
+    
+    callback()
+  }
 }
 
 window.onload = () => {
