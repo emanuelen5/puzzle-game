@@ -76,3 +76,9 @@ footer {
 .tile-container.moving {
   transition: transform 0.15s ease-in;'
 }
+
+@keyframes winning-animation {
+  100% {
+      background-position: -600% center;
+  }
+}
