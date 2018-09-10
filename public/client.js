@@ -1,10 +1,16 @@
+// Variables holding global game state
 
+// tileState holds the game state at any point in time
 var tileState = {
+  // tileLoc will be set up as a hash of objects of the form {CSS id: tile position} where the locations are numbered 0 to 15.
+  // nullLoc is the position of the gap, again numbers 0 through 15.
   tileLoc: {},
   nullLoc: ''
 };
-var gameWon = {}
+// gameWonState holds the state of the game that the player is aiming for
+var gameWonState = {}
 
+// Set up the board image, dimensions and initialise the tiles
 function boardSetup() {
   var gameArea = document.getElementById('game-area');
   var img = new Image();
@@ -15,10 +21,8 @@ function boardSetup() {
   gameArea.style.setProperty('--game-aspect-ratio', gameAspectRatio)
   
   var tileHTML = 
-      `<div class="tile-container">
-          <div class="tile">
-            <div class="number">
-            </div>
+      `<div class="tile">
+          <div class="number">
           </div>
         </div>`
   var tiles = [...Array(16)].map(_ => tileHTML)
@@ -26,44 +30,41 @@ function boardSetup() {
   gameArea.innerHTML = tiles.join("")
 }
 
+// Position the image in the right place on each tile to reassemble it on the grid
 function tileSetup() {
-  var tileContainerArray = document.querySelectorAll('.tile-container')
+  var tileArray = document.querySelectorAll('.tile')
   
-  tileContainerArray.forEach(function(container,index) {
+  tileArray.forEach(function(tile,index) {
     // inexplicably, Chrome Android browser does not like it when some background image positions are set to 100%.
     // therefore capping this to 99.6%, which seems to display ok
     var backgroundPositionX = (index % 4) * 99.6/3
     var backgroundPositionY = Math.floor(index/4) * 99.6/3
     
-    container.id = `container-${index}`
-    container.style.backgroundPosition = `${backgroundPositionX}% ${backgroundPositionY}%`
+    tile.id = `tile-${index}`
+    tile.style.backgroundPosition = `${backgroundPositionX}% ${backgroundPositionY}%`
     
-    tileState['tileLoc'][container.id] = index
-    gameWon[container.id] = index
+    tileState['tileLoc'][tile.id] = index
+    gameWonState[tile.id] = index
     
     var tileNumber = index + 1
-    container.querySelector('.number').innerText = tileNumber
+    tile.querySelector('.number').innerText = tileNumber
     
     
-    container.addEventListener('click', function(e) {
+    tile.addEventListener('click', function(e) {
       if (document.querySelectorAll('.moving').length === 0) {
-        if (e.target !== this) {
-          e.target.parentElement.click()
-        } else {
-          makePlay(e.target.id)
-        }
+        makePlay(e.target.id)
       }
     })
   })
   //TODO: make this user-customisable
-  deleteTile('container-15')
+  deleteTile('tile-15')
 }
 
 function deleteTile(tileId) {
   document.getElementById(tileId).remove()
   tileState['nullLoc'] = tileState['tileLoc'][tileId]
   delete tileState['tileLoc'][tileId]
-  delete gameWon[tileId]
+  delete gameWonState[tileId]
 }
 
 function randomizeBoard() { 
@@ -100,7 +101,7 @@ function automaticMove() {
 }
 
 function checkGameWon() {
-  return Object.keys(tileState['tileLoc']).every((key) => tileState['tileLoc'][key] ===  gameWon[key])
+  return Object.keys(tileState['tileLoc']).every((key) => tileState['tileLoc'][key] ===  gameWonState[key])
 }
 
 window.onload = () => {
@@ -108,7 +109,7 @@ window.onload = () => {
   tileSetup()
   drawGame()
   document.getElementById('randomize-button').style.display = 'block'
-  testValidMoves()
+  //testValidMoves()
 }
 
 // Game play
@@ -187,9 +188,9 @@ function drawGame() {
       var gridColumnStart = (tileLoc % 4) + 1
       var gridRowStart = Math.floor(tileLoc/4) + 1
 
-      var container = document.getElementById(key)
-      container.style.gridColumn = `${gridColumnStart} / ${gridColumnStart + 1}`
-      container.style.gridRow = `${gridRowStart} / ${gridRowStart + 1}`
+      var tile = document.getElementById(key)
+      tile.style.gridColumn = `${gridColumnStart} / ${gridColumnStart + 1}`
+      tile.style.gridRow = `${gridRowStart} / ${gridRowStart + 1}`
     }
   };
 }
