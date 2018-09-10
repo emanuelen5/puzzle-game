@@ -2,8 +2,7 @@
 /* called by your view template */
 
 :root {
-  --game-width: 0vw;
-  --game-height: 0vw;
+  --game-aspect-ratio: 1;
   --img-url:'';
 }
 
