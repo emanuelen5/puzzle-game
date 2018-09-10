@@ -48,14 +48,15 @@ footer {
   margin: 1em auto;
   
   height: 80vh;
-  width: calc(80vh / var(--game-aspect-ratio)) ;
+  width: calc(80vh * var(--game-aspect-ratio)) ;
+  background-size: calc(80vh * var(--game-aspect-ratio)) 80vh;
 }
 
 @media screen and (max-width: 600px) {
   #game-area {
     width: 90vw;
     height: calc(90vw / var(--game-aspect-ratio)) ;
-    background-size: 90vw 
+    background-size: 90vw calc(90vw / var(--game-aspect-ratio));
   }
 }
 

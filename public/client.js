@@ -11,18 +11,6 @@ function boardSetup() {
   var gameAspectRatio = img.naturalWidth / img.naturalHeight
   gameArea.style.setProperty('--img-url', `url(${img.src}`)
   gameArea.style.setProperty('--game-aspect-ratio', gameAspectRatio)
-
-  /*if (gameAspectRatio > 1) {
-    var maxViewportWidth = 90;
-    gameArea.style.setProperty('--game-width', `${maxViewportWidth}vw`)
-    var height = maxViewportWidth / gameAspectRatio
-    gameArea.style.setProperty('--game-height', `${height}vw`)
-  } else {
-    var maxViewportHeight = 80;
-    var width = maxViewportHeight * gameAspectRatio
-    gameArea.style.setProperty('--game-width', `${width}vh`)
-    gameArea.style.setProperty('--game-height', `${maxViewportHeight}vh`)
-  }*/
 }
 
 function createTiles() {
