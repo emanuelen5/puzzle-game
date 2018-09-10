@@ -1,6 +1,4 @@
-var gameArea = document.getElementById('game-area');
-var img = new Image();
-img.src = 'https://cdn.glitch.com/24dc13be-ff08-4007-bf38-7c45e0b5d9e1%2FIMG_20180826_104348.jpg?1535662149619'
+
 var tileState = {
   tileLoc: {},
   nullLoc: ''
@@ -8,12 +6,14 @@ var tileState = {
 var gameWon = {}
 
 function boardSetup() {
+  var gameArea = document.getElementById('game-area');
+  var img = new Image();
+  img.src = 'https://cdn.glitch.com/24dc13be-ff08-4007-bf38-7c45e0b5d9e1%2FIMG_20180826_104348.jpg?1535662149619'
+  
   var gameAspectRatio = img.naturalWidth / img.naturalHeight
   gameArea.style.setProperty('--img-url', `url(${img.src}`)
   gameArea.style.setProperty('--game-aspect-ratio', gameAspectRatio)
-}
-
-function createTiles() {
+  
   var tileHTML = 
       `<div class="tile-container">
           <div class="tile">
@@ -105,11 +105,10 @@ function checkGameWon() {
 
 window.onload = () => {
   boardSetup()
-  createTiles()
   tileSetup()
   drawGame()
   document.getElementById('randomize-button').style.display = 'block'
-  // testValidMoves()
+  testValidMoves()
 }
 
 // Game play
