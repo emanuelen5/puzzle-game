@@ -1,5 +1,4 @@
 // Variables holding global game state
-
 // tileState holds the game state at any point in time
 var tileState = {
   // tileLoc will be set up as a hash of objects of the form {CSS id: tile position} where the locations are numbered 0 to 15.
@@ -30,7 +29,7 @@ function boardSetup() {
   gameArea.innerHTML = tiles.join("")
 }
 
-// Position the image in the right place on each tile to reassemble it on the grid
+// Position the image in the right place on each tile to reassemble it on the grid, and enable click events on the tiles
 function tileSetup() {
   var tileArray = document.querySelectorAll('.tile')
   
@@ -56,7 +55,7 @@ function tileSetup() {
       }
     })
   })
-  //TODO: make this user-customisable
+  //TODO: make choice of tile to remove user-customisable
   deleteTile('tile-15')
 }
 
@@ -67,6 +66,8 @@ function deleteTile(tileId) {
   delete gameWonState[tileId]
 }
 
+// Put the board into a random state by making N moves back from the solved state.
+// Randomised configurations only result in a solvable board 50% of the time.
 function randomizeBoard() { 
   document.body.classList.remove('winning-animation')
 
@@ -80,7 +81,6 @@ function randomizeBoard() {
 }
 
 function automaticMove() {
-  console.log('randomising')
   if (document.querySelectorAll('.moving').length === 0) {
     var nullLoc = getNullLoc();
     var tileLocs = getTileLocs();
@@ -104,14 +104,6 @@ function checkGameWon() {
   return Object.keys(tileState['tileLoc']).every((key) => tileState['tileLoc'][key] ===  gameWonState[key])
 }
 
-window.onload = () => {
-  boardSetup()
-  tileSetup()
-  drawGame()
-  document.getElementById('randomize-button').style.display = 'block'
-  //testValidMoves()
-}
-
 // Game play
 function makePlay(tileId) {
   var tileLoc = getTileLoc(tileId);
@@ -127,6 +119,9 @@ function makePlay(tileId) {
 }
 
 // TODO: Refactor Tile into a class that contains all of this information
+// It's not possible to apply transitions to elements moving between different positions on a grid.
+// So here we fake it by applying a translate function in the direction in which the tile needs to move.
+// We then redraw the board with all tiles on the grid once the transition's done.
 function moveTile(tileId, tileLoc, nullLoc) {
   tileState['tileLoc'][tileId] = nullLoc
   tileState['nullLoc'] = tileLoc
@@ -138,6 +133,8 @@ function moveTile(tileId, tileLoc, nullLoc) {
   var moveX = `calc(${direction[0]*-100}% + ${direction[0]*-3}px)`
   var moveY = `calc(${direction[1]*-100}% + ${direction[1]*-3}px)`
   
+  // The .moving class can't exist until we know what direction it needs to move in. 
+  // So to add the rule, we add it to the stylesheet, not to the element itself.
   var styleSheetIndex = 
       Object.keys(document.styleSheets).find((key) => document.styleSheets[key].href.includes('/style.css'))
   document.styleSheets[styleSheetIndex].insertRule(`#${tileId}.moving { 
@@ -162,6 +159,7 @@ function moveTile(tileId, tileLoc, nullLoc) {
   tileEl.classList.add('moving')
 }
 
+// Given a tile location and the location of the empty spot, tell us whether a move's valid, and if so, in what direction
 function findAdjacencyDirection(tileLoc, nullLoc) {
   /* Return an x or y direction relative to the null space if the tile is adjacent, or if it isn't then return null
              [0, -1]
@@ -179,6 +177,7 @@ function findAdjacencyDirection(tileLoc, nullLoc) {
   } else return null
 }
 
+// Given the current board state, draw all the tiles on the grid at the right spots
 function drawGame() {
   var tiles = getTileLocs()
   for (var key in tiles) {
@@ -223,4 +222,13 @@ function testValidMoves() {
   console.log(`findAdjacencyDirection(1, 2) is [-1, 0]: ${findAdjacencyDirection(1, 2)[0] === -1 && findAdjacencyDirection(1, 2)[1] === 0}`)
   console.log(`findAdjacencyDirection(6, 2) is [0, 1]: ${findAdjacencyDirection(6, 2)[0] === 0 && findAdjacencyDirection(6, 2)[1] === 1}`)
   return true
+}
+
+// Start the game once everything's loaded.
+window.onload = function () {
+  boardSetup()
+  tileSetup()
+  drawGame()
+  document.getElementById('randomize-button').style.display = 'block'
+  //testValidMoves()
 }
