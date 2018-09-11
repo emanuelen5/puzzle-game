@@ -14,6 +14,8 @@ function boardSetup() {
   var gameArea = document.getElementById('game-area');
   var img = new Image();
   img.src = 'https://cdn.glitch.com/24dc13be-ff08-4007-bf38-7c45e0b5d9e1%2FIMG_20180826_104348.jpg?1535662149619'
+  console.log(img.naturalWidth)
+  console.log(img.naturalHeight)
   
   var gameAspectRatio = img.naturalWidth / img.naturalHeight
   gameArea.style.setProperty('--img-url', `url(${img.src}`)
@@ -27,6 +29,7 @@ function boardSetup() {
   var tiles = [...Array(16)].map(_ => tileHTML)
   
   gameArea.innerHTML = tiles.join("")
+  console.dir(gameArea)
 }
 
 // Position the image in the right place on each tile to reassemble it on the grid, and enable click events on the tiles
