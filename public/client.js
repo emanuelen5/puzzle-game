@@ -19,21 +19,20 @@ function gameSetup() {
     var gameAspectRatio = img.naturalWidth / img.naturalHeight
     gameArea.style.setProperty('--img-url', `url(${img.src}`)
     gameArea.style.setProperty('--game-aspect-ratio', gameAspectRatio)
-  }
-  
-  var tileHTML = 
+    
+    var tileHTML = 
       `<div class="tile">
           <div class="number">
           </div>
         </div>`
-  var tiles = [...Array(16)].map(_ => tileHTML)
-  
-  gameArea.innerHTML = tiles.join("")
-  
-  tileSetup()
-  drawGame()
-  gameArea.style.display = 'grid';
-  document.getElementById('randomize-button').style.display = 'block'
+    var tiles = [...Array(16)].map(_ => tileHTML)
+
+    gameArea.innerHTML = tiles.join("")
+
+    tileSetup()
+    drawGame()
+    document.getElementById('randomize-button').style.display = 'block'
+  }
 }
 
 // Position the image in the right place on each tile to reassemble it on the grid, and enable click events on the tiles
