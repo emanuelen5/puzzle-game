@@ -39,7 +39,7 @@ footer {
 }
 
 #game-area {
-  display: grid;
+  display: none;
   grid-gap: 3px;
   grid-template-rows: repeat(4, 1fr);
   grid-template-columns: repeat(4, 1fr);
