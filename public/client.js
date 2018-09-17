@@ -19,7 +19,7 @@ var gameWonState = {}
 function gameSetup() {
   var gameArea = document.getElementById('game-area');
   var img = new Image();
-  img.src = 'https://cdn.glitch.com/24dc13be-ff08-4007-bf38-7c45e0b5d9e1%2FIMG_20180826_104348.jpg?1535662149619'
+  img.src = 'https://cdn.glitch.com/b1283791-ff27-4ee5-b9cb-906713391a97%2FIMG_20180826_104348.jpg?1537214398686'
 
   img.onload = function() {
     var gameAspectRatio = img.naturalWidth / img.naturalHeight
