@@ -3,8 +3,7 @@ var filesToCache = [
   '/',
   '/client.js',
   '/style.css',
-  //'/views/index.html',
-  //'https://cdn.glitch.com/24dc13be-ff08-4007-bf38-7c45e0b5d9e1%2FIMG_20180826_104348.jpg?1535662149619'
+  'https://cdn.glitch.com/24dc13be-ff08-4007-bf38-7c45e0b5d9e1%2FIMG_20180826_104348.jpg?1535662149619'
 ];
 
 self.addEventListener('install', function(e) {
