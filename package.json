@@ -10,7 +10,7 @@
     "start": "node server.js",
     "test": "mocha"
   },
-  "dependencies": {
+  "dependencies": { 
     "express": "^4.16.3",
     "mocha": "^5.2.0"
   },
