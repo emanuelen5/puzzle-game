@@ -1,3 +1,5 @@
+const fileUploadEl = document.getElementById("file-upload");
+
 // Variables holding global game state
 // tileState holds the game state at any point in time
 const tileState = {
