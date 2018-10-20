@@ -12,8 +12,12 @@ const port =  process.env.port || 3000;
 app.use(express.static('public'));
 
 // set up a route to redirect http to https
-app.get('*', function(request, response){
-  response.redirect('https://' + request.headers.host + request.url);
+app.all('*', function(request, response, next){
+  if(request.get('X-Forwarded-Proto').indexOf('https') === -1) {
+    return next();
+  } else {
+    response.redirect('https://' + request.hostname + request.url);
+  }
 });
 
 // http://expressjs.com/en/starter/basic-routing.html
