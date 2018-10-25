@@ -11,8 +11,11 @@ const port =  process.env.port || 3000;
 // set up a route to redirect http to https
 app.all('*', function(request, response, next){
   if(request.get('X-Forwarded-Proto').indexOf('https') === -1) {
+    console.log('not redirecting')
     return next();
   } else {
+    console.log('redirecting')
+    console.log('https://' + request.hostname + request.url)
     response.redirect('https://' + request.hostname + request.url);
   }
 });
