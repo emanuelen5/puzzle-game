@@ -9,7 +9,8 @@ const port =  process.env.port || 3000;
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
 
 // set up a route to redirect http to https
-app.use('/path', function(request, response, next) {  
+app.enable('trust proxy');
+app.use(function(request, response, next) {  
   if(!request.secure) {
     var secureUrl = "https://" + request.headers['host'] + request.url; 
     response.writeHead(301, { "Location":  secureUrl });
