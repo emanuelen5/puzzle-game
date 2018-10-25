@@ -7,11 +7,6 @@ if (workbox) {
   
   workbox.setConfig({ debug: true });
   workbox.precaching.precacheAndRoute([]);
-
-  // workbox.routing.registerRoute(
-  //   new RegExp(".*.(js|html|css)"),
-  //   workbox.strategies.networkFirst()
-  // );
   
   workbox.routing.registerNavigationRoute('/views/index.html');
 
