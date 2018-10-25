@@ -1,4 +1,12 @@
+<<<<<<< Updated upstream:public/client.js
 const fileUploadEl = document.getElementById("file-upload");
+=======
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/sw.js").then(function() {
+    console.log("Service Worker Registered");
+  });
+}
+>>>>>>> Stashed changes:public/js/client.js
 
 // Variables holding global game state
 // tileState holds the game state at any point in time
@@ -43,6 +51,7 @@ function gameSetup() {
 // Position the image in the right place on each tile to reassemble it on the grid, and enable click events on the tiles
 function tileSetup() {
   const tileArray = document.querySelectorAll(".tile");
+<<<<<<< Updated upstream:public/client.js
   const gameArea = document.getElementById("game-area");
 
   tileArray.forEach(function(tile, index) {
@@ -52,11 +61,21 @@ function tileSetup() {
     const backgroundPositionY = (Math.floor(index / 4) * 99.6) / 3;
 
     tile.id = `tile-${index}`;
+=======
+  tileArray.forEach((tile, index) => {
+    tile.id = `tile-${index}`;
+    
+    // inexplicably, Chrome Android browser does not like it when some background image positions are set to 100%.	
+    // therefore capping this to 99.6%, which seems to display ok
+    const backgroundPositionX = ((index % 4) * 99.6) / 3;	
+    const backgroundPositionY = (Math.floor(index / 4) * 99.6) / 3;
+>>>>>>> Stashed changes:public/js/client.js
     tile.style.backgroundPosition = `${backgroundPositionX}% ${backgroundPositionY}%`;
 
     tileState["tileLoc"][tile.id] = index;
     gameWonState["tileLoc"][tile.id] = index;
 
+<<<<<<< Updated upstream:public/client.js
     const tileNumber = index + 1;
     tile.querySelector(".number").innerText = tileNumber;
 
@@ -67,6 +86,11 @@ function tileSetup() {
     //   }
     // });
 
+=======
+
+    tile.querySelector(".number").innerText = index + 1;
+ 
+>>>>>>> Stashed changes:public/js/client.js
     tile.addEventListener("mousedown", startSwipe);
     tile.addEventListener("touchstart", startSwipe);
   });
@@ -353,10 +377,16 @@ function testValidMoves() {
 
 // Start the game once everything's loaded.
 window.onload = function() {
+<<<<<<< Updated upstream:public/client.js
   document.addEventListener("touchmove", function(e) {
     console.log("dragged");
     console.log(e.target);
   });
+=======
+  // account for browser chrome on mobile by setting the height of the document to the window 
+  document.body.style.height = `${window.innerHeight}px`;
+  
+>>>>>>> Stashed changes:public/js/client.js
   gameSetup();
   //testValidMoves()
 };
