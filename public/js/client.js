@@ -1,12 +1,9 @@
-<<<<<<< Updated upstream:public/client.js
-const fileUploadEl = document.getElementById("file-upload");
-=======
+
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("/sw.js").then(function() {
     console.log("Service Worker Registered");
   });
 }
->>>>>>> Stashed changes:public/js/client.js
 
 // Variables holding global game state
 // tileState holds the game state at any point in time

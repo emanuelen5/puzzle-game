@@ -1,11 +1,8 @@
 dependencies:
   express: 4.16.3
-<<<<<<< Updated upstream
-=======
   workbox-cli: 3.6.2
 devDependencies:
   mocha: 5.2.0
->>>>>>> Stashed changes
 packages:
   /accepts/1.3.5:
     dependencies:
@@ -52,8 +49,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-ml9pkFGx5wczKPKgCJaLZOopVdI=
-<<<<<<< Updated upstream
-=======
   /babel-extract-comments/1.0.0:
     dependencies:
       babylon: 6.18.0
@@ -89,7 +84,6 @@ packages:
   /balanced-match/1.0.0:
     resolution:
       integrity: sha1-ibTRmasr7kneFk6gK4nORi1xt2c=
->>>>>>> Stashed changes
   /body-parser/1.18.2:
     dependencies:
       bytes: 3.0.0
@@ -107,8 +101,6 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha1-h2eKGdhLR9hZuDGZvVm84iKxBFQ=
-<<<<<<< Updated upstream
-=======
   /boxen/1.3.0:
     dependencies:
       ansi-align: 2.0.0
@@ -139,15 +131,12 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-Jw8HbFpywC9bZaR9+Uxf46J4iS8=
->>>>>>> Stashed changes
   /bytes/3.0.0:
     dev: false
     engines:
       node: '>= 0.8'
     resolution:
       integrity: sha1-0ygVQE1olpn4Wk6k+odV3ROpYEg=
-<<<<<<< Updated upstream
-=======
   /camelcase-keys/2.1.0:
     dependencies:
       camelcase: 2.1.1
@@ -255,7 +244,6 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-vtv5HtGjcYUgFrXc6Kx747B83MRRVS5R1VTEQoXvuP+kMI+if6uywV0nDGoiydJRy4yk7h9od5Og0kxx4zUXmw==
->>>>>>> Stashed changes
   /content-disposition/0.5.2:
     dev: false
     engines:
@@ -318,8 +306,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==
-<<<<<<< Updated upstream
-=======
   /debug/3.1.0:
     dependencies:
       ms: 2.0.0
@@ -338,7 +324,6 @@ packages:
       node: '>=4.0.0'
     resolution:
       integrity: sha512-LOHxIOaPYdHlJRtCQfDIVZtfw/ufM8+rVj649RIHzcm/vGwQRXFt6OPqIFWsm2XEMrNIEtWR64sY1LEKD2vAOA==
->>>>>>> Stashed changes
   /depd/1.1.1:
     dev: false
     engines:
@@ -355,8 +340,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-l4hXRCxEdJ5CBmE+N5RiBYJqvYA=
-<<<<<<< Updated upstream
-=======
   /diff/3.5.0:
     dev: true
     engines:
@@ -375,7 +358,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-7gHdHKwO08vH/b6jfcCo8c4ALOI=
->>>>>>> Stashed changes
   /ee-first/1.1.1:
     dev: false
     resolution:
@@ -396,14 +378,11 @@ packages:
     dev: false
     resolution:
       integrity: sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=
-<<<<<<< Updated upstream
-=======
   /escape-string-regexp/1.0.5:
     engines:
       node: '>=0.8.0'
     resolution:
       integrity: sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
->>>>>>> Stashed changes
   /etag/1.8.1:
     dev: false
     engines:
@@ -515,8 +494,6 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha1-PYyt2Q2XZWn6g1qx+OSyOhBWBac=
-<<<<<<< Updated upstream
-=======
   /fs-extra/4.0.3:
     dependencies:
       graceful-fs: 4.1.11
@@ -626,7 +603,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-7T/BxH19zbcCTa8XkMlbK5lTo1WtgkFi3GvdWEyNuc4Vex7/9Dqbnpsf4JMydcfj9HCg4zUWFTL3Za6lapg5/w==
->>>>>>> Stashed changes
   /http-errors/1.6.2:
     dependencies:
       depd: 1.1.1
@@ -644,8 +620,6 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-oTZqweIP51xaGPI4uPa56/Pri/480R+mo7SeU+YETByQNhDG55ycFyNLIgta9vXhILrxXDmF7ZGhqZIcuN0gJQ==
-<<<<<<< Updated upstream
-=======
   /iconv-lite/0.4.24:
     dependencies:
       safer-buffer: 2.1.2
@@ -680,7 +654,6 @@ packages:
       wrappy: 1.0.2
     resolution:
       integrity: sha1-Sb1jMdfQLQwJvJEKEHW6gWW1bfk=
->>>>>>> Stashed changes
   /inherits/2.0.3:
     resolution:
       integrity: sha1-Yzwsg+PaQqUC9SRmAiSA9CCCYd4=
@@ -976,8 +949,6 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-KI1+qOZu5DcW6wayYHSzR/tXKCDC5Om4s1z2QJjDULzLcmf3DvzS7oluY4HCTrc+9FiKmWUgeNLg7W3uIQvxtQ==
-<<<<<<< Updated upstream
-=======
   /mimic-fn/1.2.0:
     dev: false
     engines:
@@ -1026,7 +997,6 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-2IUgKDhc3J7Uug+FxMXuqIyYzH7gJjXECKe/w43IGgQHTSj3InJi+yAA7T24L9bQMRKiUEHxEX37G5JpVUGLcQ==
->>>>>>> Stashed changes
   /ms/2.0.0:
     resolution:
       integrity: sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=
@@ -1077,8 +1047,6 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha1-IPEzZIGwg811M3mSoWlxqi2QaUc=
-<<<<<<< Updated upstream
-=======
   /once/1.4.0:
     dependencies:
       wrappy: 1.0.2
@@ -1134,15 +1102,12 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-9ID0BDTvgHQfhGkJn43qGPVaTck=
->>>>>>> Stashed changes
   /parseurl/1.3.2:
     dev: false
     engines:
       node: '>= 0.8'
     resolution:
       integrity: sha1-/CidTtiZMRlGDBViUyYs3I3mW/M=
-<<<<<<< Updated upstream
-=======
   /path-exists/2.1.0:
     dependencies:
       pinkie-promise: 2.0.1
@@ -1166,7 +1131,6 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha1-QRyttXTFoUDTpLGRDUDYDMn0C0A=
->>>>>>> Stashed changes
   /path-to-regexp/0.1.7:
     dev: false
     resolution:
@@ -1463,8 +1427,6 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha512-zhSCtt8v2NDrRlPQpCNtw/heZLtfUDqxBM1udqikb/Hbk52LK4nQSwr10u77iopCW5LsyHpuXS0GnEc48mLeew==
-<<<<<<< Updated upstream
-=======
   /string-width/2.1.1:
     dependencies:
       is-fullwidth-code-point: 2.0.0
@@ -1587,7 +1549,6 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-WIeWa7WCpFA6QetST301ARgVphM=
->>>>>>> Stashed changes
   /type-is/1.6.16:
     dependencies:
       media-typer: 0.3.0
@@ -1667,8 +1628,6 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
-<<<<<<< Updated upstream
-=======
   /which/1.3.1:
     dependencies:
       isexe: 2.0.0
@@ -1829,14 +1788,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-HBH5IY8HYImkfdUS+TxmmaaoHVI=
->>>>>>> Stashed changes
 registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
   express: ^4.16.3
-<<<<<<< Updated upstream
-=======
   mocha: ^5.2.0
   workbox-cli: ^3.6.2
->>>>>>> Stashed changes
