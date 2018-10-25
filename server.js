@@ -9,15 +9,13 @@ const port =  process.env.port || 3000;
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
 
 // set up a route to redirect http to https
-app.all('*', function(request, response, next){
-  if(request.get('X-Forwarded-Proto').indexOf('https') === -1) {
-    console.log('not redirecting')
-    return next();
-  } else {
-    console.log('redirecting')
-    console.log('https://' + request.hostname + request.url)
-    response.redirect('https://' + request.hostname + request.url);
+app.use('/path', function(request, response, next) {  
+  if(!request.secure) {
+    var secureUrl = "https://" + request.headers['host'] + request.url; 
+    response.writeHead(301, { "Location":  secureUrl });
+    response.end();
   }
+  next();
 });
 
 // http://expressjs.com/en/starter/basic-routing.html
