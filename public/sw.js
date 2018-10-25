@@ -9,26 +9,21 @@ if (workbox) {
   workbox.precaching.precacheAndRoute([
   {
     "url": "manifest.json",
-    "revision": "710e5b639b8dcad0bac52233be661c08"
+    "revision": "a85d418f49a4f90722537bf19d2eefaf"
   },
   {
     "url": "js/client.js",
-    "revision": "e5dc0c1438f5adc4c363d5fd96523851"
+    "revision": "fd49c65d7b5e4865da96dd821144cf11"
   },
   {
     "url": "css/style.css",
-    "revision": "3252195698027fce397b36b06fc44110"
+    "revision": "93b06f098e69116311f411e80a3a570c"
   },
   {
     "url": "views/index.html",
-    "revision": "f5b2dada82a9999b5b2b2d73b04a8a0a"
+    "revision": "5a6143085a196fcc969f56b31429a2f0"
   }
 ]);
-
-  // workbox.routing.registerRoute(
-  //   new RegExp(".*.(js|html|css)"),
-  //   workbox.strategies.networkFirst()
-  // );
   
   workbox.routing.registerNavigationRoute('/views/index.html');
 
