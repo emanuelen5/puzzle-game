@@ -76,7 +76,6 @@ function unify(e) {
 }
 
 function startSwipe(e) {
-  console.log(e)
   e.preventDefault();
 
   const endType = e.type === "mousedown" ? "mouseup" : "touchend";
