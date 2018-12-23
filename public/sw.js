@@ -1,3 +1,5 @@
+const version = "0.1"
+
 importScripts(
   "https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js"
 );
@@ -33,7 +35,7 @@ if (workbox) {
     // Use the cache if it's available
     workbox.strategies.staleWhileRevalidate({
       // Use a custom cache name
-      cacheName: "image-cache",
+      cacheName: "sliding-puzzle" + version,
       plugins: [
         new workbox.expiration.Plugin({
           // Cache only 20 images
