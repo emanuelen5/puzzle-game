@@ -1,5 +1,5 @@
 const version = "0.1"
-const cacheName = "sliding-puzzle" + version
+const cacheName = "sliding-puzzle-" + version
 
 importScripts(
   "https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js"
@@ -9,11 +9,25 @@ if (workbox) {
   console.log(`Yay! Workbox is loaded 🎉`);
   
   workbox.setConfig({ debug: true });
+//   workbox.precaching.precacheAndRoute([
+//   {
+//     "url": "manifest.json"
+//   },
+//   {
+//     "url": "js/client.js"
+//   },
+//   {
+//     "url": "css/style.css"
+//   },
+//   {
+//     "url": "views/index.html"
+//   }
+// ]);
   
   workbox.routing.registerNavigationRoute('/views/index.html');
   
   workbox.routing.registerRoute(
-  /\.(?:js|css)$/,
+  /\.(?:js|css|json|html)$/,
   workbox.strategies.staleWhileRevalidate({
       // Use a custom cache name
       cacheName: cacheName
