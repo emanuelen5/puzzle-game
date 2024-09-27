@@ -26,10 +26,10 @@ function gameSetup() {
     gameArea.style.setProperty("--game-aspect-ratio", gameAspectRatio);
 
     const tileHTML = 
-          `<div class="tile" tabindex="0">
-          <div class="number">
-          </div>
-        </div>`;
+      `<div class="tile" tabindex="0">
+        <div class="number"></div>
+        <div class="announcement"></div>
+      </div>`;
     const tiles = [...Array(9)].map(_ => tileHTML);
 
     gameArea.innerHTML = tiles.join("");
@@ -42,6 +42,7 @@ function gameSetup() {
 
 // Position the image in the right place on each tile to reassemble it on the grid, and enable click events on the tiles
 function tileSetup() {
+  const texts = ["Vi", "har", "för-", "lov-", "at", "oss", "!!!", "<3"];
   const tileArray = document.querySelectorAll(".tile");
   tileArray.forEach((tile, index) => {
     tile.id = `tile-${index}`;
@@ -56,6 +57,7 @@ function tileSetup() {
     gameWonState["tileLoc"][tile.id] = index;
 
     tile.querySelector(".number").innerText = index + 1;
+    tile.querySelector(".announcement ").innerText = texts[index];
  
     tile.addEventListener("mousedown", startSwipe);
     tile.addEventListener("touchstart", startSwipe);

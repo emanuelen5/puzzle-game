@@ -82,7 +82,8 @@ footer {
 
 .announcement {
   color: white;
-  
+  font-size 3em;
+  position: relative;
 }
 
 .tile {
