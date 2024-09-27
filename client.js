@@ -74,7 +74,7 @@ function unify(e) {
 
 function startSwipe(e) {
   e.preventDefault();
-  console.log(`startSwipe! ${e.target.id}`);
+  console.log(`startSwipe! ${e.target.id} ...`);
 
   const endType = e.type === "mousedown" ? "mouseup" : "touchend";
 
@@ -97,6 +97,7 @@ function startSwipe(e) {
     }
 
     makePlay(e.target.id, swipeDirection);
+    console.log(`swipeend! ${e.target.id}, ${swipeDirection} ...`);
 
     document.removeEventListener(endType, detectSwipeDirection);
   });
@@ -159,6 +160,7 @@ function makePlay(tileId, swipeDirection) {
   const tileLoc = getTileLoc(tileId);
   const nullLoc = getNullLoc();
   const tileRelativePos = findAdjacencyDirection(tileLoc, nullLoc);
+  console.log(`${tileLoc}, ${nullLoc}, ${tileRelativePos}`);
   if (tileRelativePos) {
     if (
       swipeDirection.toString() === [0, 0].toString() ||
