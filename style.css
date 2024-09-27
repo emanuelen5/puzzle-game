@@ -12,9 +12,9 @@ body {
   margin: 0;
   padding: 0;
   touch-action:none;
-  display: flex;
+  /*display: flex;*/
   flex-direction: column;
-/*   height: 100vh; */
+  height: 100vh;
   justify-content: center;
   align-items: center;
 }
@@ -50,15 +50,15 @@ footer {
 #game-area {
   display: grid;
   grid-gap: 3px;
-  grid-template-rows: repeat(4, 1fr);
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   
   position: relative;
   margin: 1em auto;
   
-  height: 100vh;
-  width: calc(100vh * var(--game-aspect-ratio)) ;
-  background-size: calc(100vh * var(--game-aspect-ratio)) 100vh;
+  height: 90vh;
+  width: calc(90vh * var(--game-aspect-ratio)) ;
+  background-size: calc(90vh * var(--game-aspect-ratio)) 90vh;
   user-select: none;
 }
 

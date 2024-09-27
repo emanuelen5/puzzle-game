@@ -18,7 +18,7 @@ function gameSetup() {
   const img = new Image();
   // 🔨 Change the following URL to customise with your own picture
   img.src =
-    "https://cdn.glitch.global/94285134-2e38-43c9-ab53-1e7489618f66/IMG_0394.JPG?v=1727464460708";
+    "https://cdn.glitch.global/94285134-2e38-43c9-ab53-1e7489618f66/kvadrat.jpg?v=1727465801986";
 
   img.onload = function() {
     const gameAspectRatio = img.naturalWidth / img.naturalHeight;
@@ -47,8 +47,8 @@ function tileSetup() {
     
     // inexplicably, Chrome Android browser does not like it when some background image positions are set to 100%.	
     // therefore capping this to 99.6%, which seems to display ok
-    const backgroundPositionX = ((index % 3) * 99.6) / 3;	
-    const backgroundPositionY = (Math.floor(index / 3) * 99.6) / 3;
+    const backgroundPositionX = ((index % 3) * 99.6) / 2;	
+    const backgroundPositionY = (Math.floor(index / 3) * 99.6) / 2;
     tile.style.backgroundPosition = `${backgroundPositionX}% ${backgroundPositionY}%`;
 
     tileState["tileLoc"][tile.id] = index;
@@ -328,7 +328,7 @@ function testValidMoves() {
 // Start the game once everything's loaded.
 window.onload = function() {
   // account for browser chrome on mobile by setting the height of the document to the window 
-  document.body.style.height = `${window.innerHeight}px`;
+  //document.body.style.height = `${window.innerHeight}px`;
   gameSetup();
   //testValidMoves()
 };
