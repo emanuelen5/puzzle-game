@@ -18,7 +18,7 @@ function gameSetup() {
   const img = new Image();
   // 🔨 Change the following URL to customise with your own picture
   img.src =
-    "https://cdn.glitch.com/24dc13be-ff08-4007-bf38-7c45e0b5d9e1%2FIMG_20180826_104348.jpg?1537812587772";
+    "https://cdn.glitch.global/94285134-2e38-43c9-ab53-1e7489618f66/IMG_0394.JPG?v=1727464460708";
 
   img.onload = function() {
     const gameAspectRatio = img.naturalWidth / img.naturalHeight;
@@ -29,7 +29,7 @@ function gameSetup() {
           <div class="number">
           </div>
         </div>`;
-    const tiles = [...Array(16)].map(_ => tileHTML);
+    const tiles = [...Array(9)].map(_ => tileHTML);
 
     gameArea.innerHTML = tiles.join("");
 
@@ -47,8 +47,8 @@ function tileSetup() {
     
     // inexplicably, Chrome Android browser does not like it when some background image positions are set to 100%.	
     // therefore capping this to 99.6%, which seems to display ok
-    const backgroundPositionX = ((index % 4) * 99.6) / 3;	
-    const backgroundPositionY = (Math.floor(index / 4) * 99.6) / 3;
+    const backgroundPositionX = ((index % 3) * 99.6) / 2;	
+    const backgroundPositionY = (Math.floor(index / 3) * 99.6) / 2;
     tile.style.backgroundPosition = `${backgroundPositionX}% ${backgroundPositionY}%`;
 
     tileState["tileLoc"][tile.id] = index;
@@ -61,7 +61,7 @@ function tileSetup() {
   });
 
   //TODO: make choice of tile to remove user-customisable
-  deleteTile("tile-15");
+  deleteTile("tile-8");
 }
 
 // from the excellent tutorial on unifying swipe types here: https://codepen.io/thebabydino/pen/qxebVa
