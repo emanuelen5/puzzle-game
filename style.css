@@ -55,9 +55,9 @@ footer {
   position: relative;
   margin: 1em auto;
   
-  height: 90vh;
-  width: calc(90vh * var(--game-aspect-ratio)) ;
-  background-size: calc(90vh * var(--game-aspect-ratio)) 90vh;
+  height: 80vh;
+  width: calc(80vh * var(--game-aspect-ratio)) ;
+  background-size: calc(80vh * var(--game-aspect-ratio)) 80vh;
   user-select: none;
 }
 
@@ -81,12 +81,13 @@ footer {
 
 .announcement {
   color: white;
-  font-size: 4em;
+  font-size: 10vw;
   position: relative;
-  margin-top: 20%;
+  margin-top: 10%;
   text-align: center;
   display: none;
   pointer-events: none;
+  text-overflow: clip;
 }
 
 .tile {
