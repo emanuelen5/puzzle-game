@@ -82,8 +82,10 @@ footer {
 
 .announcement {
   color: white;
-  font-size 3em;
+  font-size: 4em;
   position: relative;
+  margin-top: 35%;
+  text-align: center;
 }
 
 .tile {
@@ -93,6 +95,14 @@ footer {
   width:100%;
   background-position: inherit;
   border-radius: 5px;
+  position: relative;
+}
+
+.wrapper {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
 }
 
 .tile.moving {
