@@ -36,6 +36,7 @@ function gameSetup() {
 
     tileSetup();
     randomizeBoard();
+    win_game();
     //document.getElementById("randomize-button").style.display = "block";
   };
 }
