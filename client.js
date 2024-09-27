@@ -27,8 +27,8 @@ function gameSetup() {
 
     const tileHTML = 
       `<div class="tile" tabindex="0">
-        <div class="wrapper"><div class="number"></div></div>
-        <div class="wrapper"><div class="announcement"></div></div>
+        <div class="number"></div>
+        <div class="announcement"></div>
       </div>`;
     const tiles = [...Array(9)].map(_ => tileHTML);
 
@@ -75,7 +75,7 @@ function unify(e) {
 function startSwipe(e) {
   e.preventDefault();
   console.log(`startSwipe! ${e.target.id} ...`);
-
+  
   const endType = e.type === "mousedown" ? "mouseup" : "touchend";
 
   document.addEventListener(endType, function detectSwipeDirection(f) {
@@ -171,12 +171,19 @@ function makePlay(tileId, swipeDirection) {
     }
   }
   if (checkGameWon()) {
+    win_game();
+  }
+}
+
+function win_game() {
+    const texts = document.querySelectorAll(".announcement");
+    texts.forEach((text, index) => { text.style.display = "block"; })
+    
     document.getElementById("randomize-button").style.display = "block";
     document.body.classList.add("winning-animation");
     setTimeout(function() {
       document.body.classList.remove("winning-animation");
     }, 10000);
-  }
 }
 
 // TODO: Refactor Tile into a class that contains all of this information
