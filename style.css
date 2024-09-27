@@ -80,6 +80,11 @@ footer {
   pointer-events: none;
 }
 
+.announcement {
+  color: white;
+  
+}
+
 .tile {
   background-image: var(--img-url);
   background-size: inherit;

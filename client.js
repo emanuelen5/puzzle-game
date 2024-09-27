@@ -25,7 +25,8 @@ function gameSetup() {
     gameArea.style.setProperty("--img-url", `url(${img.src}`);
     gameArea.style.setProperty("--game-aspect-ratio", gameAspectRatio);
 
-    const tileHTML = `<div class="tile" tabindex="0">
+    const tileHTML = 
+          `<div class="tile" tabindex="0">
           <div class="number">
           </div>
         </div>`;
@@ -34,8 +35,8 @@ function gameSetup() {
     gameArea.innerHTML = tiles.join("");
 
     tileSetup();
-    drawGame();
-    document.getElementById("randomize-button").style.display = "block";
+    randomizeBoard();
+    //document.getElementById("randomize-button").style.display = "block";
   };
 }
 
