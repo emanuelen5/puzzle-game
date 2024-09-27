@@ -50,15 +50,15 @@ footer {
 #game-area {
   display: grid;
   grid-gap: 3px;
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   
   position: relative;
   margin: 1em auto;
   
-  height: 80vh;
-  width: calc(80vh * var(--game-aspect-ratio)) ;
-  background-size: calc(80vh * var(--game-aspect-ratio)) 80vh;
+  height: 100vh;
+  width: calc(100vh * var(--game-aspect-ratio)) ;
+  background-size: calc(100vh * var(--game-aspect-ratio)) 100vh;
   user-select: none;
 }
 

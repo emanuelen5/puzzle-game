@@ -47,8 +47,8 @@ function tileSetup() {
     
     // inexplicably, Chrome Android browser does not like it when some background image positions are set to 100%.	
     // therefore capping this to 99.6%, which seems to display ok
-    const backgroundPositionX = ((index % 3) * 99.6) / 2;	
-    const backgroundPositionY = (Math.floor(index / 3) * 99.6) / 2;
+    const backgroundPositionX = ((index % 3) * 99.6) / 3;	
+    const backgroundPositionY = (Math.floor(index / 3) * 99.6) / 3;
     tile.style.backgroundPosition = `${backgroundPositionX}% ${backgroundPositionY}%`;
 
     tileState["tileLoc"][tile.id] = index;
@@ -222,13 +222,13 @@ function findAdjacencyDirection(tileLoc, nullLoc) {
      [-1, 0]  null  [1, 0]
              [0, 1]
   */
-  if (tileLoc - nullLoc === 4) {
+  if (tileLoc - nullLoc === 3) {
     return [0, 1];
-  } else if (tileLoc - nullLoc === -4) {
+  } else if (tileLoc - nullLoc === -3) {
     return [0, -1];
-  } else if (tileLoc - nullLoc === 1 && tileLoc % 4 !== 0) {
+  } else if (tileLoc - nullLoc === 1 && tileLoc % 3 !== 0) {
     return [1, 0];
-  } else if (tileLoc - nullLoc === -1 && tileLoc % 4 !== 3) {
+  } else if (tileLoc - nullLoc === -1 && tileLoc % 3 !== 2) {
     return [-1, 0];
   } else return null;
 }
@@ -241,8 +241,8 @@ function drawGame() {
 
     if (tileLoc >= 0) {
       // only attempt to draw tile if it has a location
-      const gridColumnStart = (tileLoc % 4) + 1;
-      const gridRowStart = Math.floor(tileLoc / 4) + 1;
+      const gridColumnStart = (tileLoc % 3) + 1;
+      const gridRowStart = Math.floor(tileLoc / 3) + 1;
 
       const tile = document.getElementById(key);
       tile.style.gridColumn = `${gridColumnStart} / ${gridColumnStart + 1}`;
