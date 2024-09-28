@@ -82,12 +82,13 @@ footer {
 .announcement {
   color: white;
   font-size: 12vh;
-  position: relative;
-  margin-top: 5%;
   text-align: center;
   display: none;
   pointer-events: none;
   text-overflow: clip;
+  position: absolute;
+  top: 24%;
+  width: 100%;
 }
 
 
@@ -105,6 +106,7 @@ footer {
   background-position: inherit;
   border-radius: 5px;
   overflow: hidden;
+  position: relative;
 }
 
 .tile.moving {
