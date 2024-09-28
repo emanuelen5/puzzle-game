@@ -81,13 +81,20 @@ footer {
 
 .announcement {
   color: white;
-  font-size: 10vw;
+  font-size: 12vh;
   position: relative;
   margin-top: 5%;
   text-align: center;
   display: none;
   pointer-events: none;
   text-overflow: clip;
+}
+
+
+@media screen and (max-width: 600px) {
+  .announcement {
+     font-size: 13vw;
+  }
 }
 
 .tile {
@@ -97,6 +104,7 @@ footer {
   width:100%;
   background-position: inherit;
   border-radius: 5px;
+  overflow: hidden;
 }
 
 .tile.moving {
