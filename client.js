@@ -171,7 +171,7 @@ function makePlay(tileId, swipeDirection) {
         ) {
             moveTile(tileId, tileLoc, nullLoc);
             move_count++;
-            if (move_count == 70) {
+            if (move_count == 100) {
                 set_give_up_button_visibility(show=true);
                 set_randomize_button_visibility(show=false);
             }
