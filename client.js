@@ -189,6 +189,7 @@ function set_randomize_button_visibility(show) {
 }
 
 function win_game() {
+    console.log(`You won after ${move_count} moves`);
     const texts = document.querySelectorAll(".announcement");
     texts.forEach((text, index) => { text.style.display = "block"; })
 
