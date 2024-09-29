@@ -175,11 +175,17 @@ function makePlay(tileId, swipeDirection) {
                 set_give_up_button_visibility(show=true);
                 set_randomize_button_visibility(show=false);
             }
+            update_move_count();
         }
     }
     if (checkGameWon()) {
         win_game();
     }
+}
+
+function update_move_count() {
+    const counter = document.getElementById("move-count");
+    counter.innerHTML = move_count;
 }
 
 function set_give_up_button_visibility(show) {
@@ -202,6 +208,9 @@ function win_game() {
     setTimeout(function () {
         document.body.classList.remove("winning-animation");
     }, 10000);
+    const win = document.createElement("div");
+    win.innerText = move_count;
+    document.getElementById("wins").appendChild(win);
 }
 
 function reset_board() {
