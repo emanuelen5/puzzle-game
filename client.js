@@ -11,6 +11,8 @@ const gameWonState = {
     tileLoc: {},
     started: false
 };
+let move_count = 0;
+const total_tile_count = 9;
 
 // Set up the board image, dimensions and initialise the tiles
 function gameSetup() {
@@ -36,7 +38,6 @@ function gameSetup() {
         tileSetup();
         randomizeBoard();
         //win_game();
-        //document.getElementById("randomize-button").style.display = "block";
     };
 }
 
@@ -122,7 +123,8 @@ function randomizeBoard() {
         --count;
     }
     drawGame();
-    document.getElementById("randomize-button").style.display = "none";
+    set_randomize_button_visibility(show=false);
+    move_count = 0;
 }
 
 function automaticMove() {
@@ -168,6 +170,11 @@ function makePlay(tileId, swipeDirection) {
                 Math.abs(swipeDirection[1] + tileRelativePos[1]) < 0.5)
         ) {
             moveTile(tileId, tileLoc, nullLoc);
+            move_count++;
+            if (move_count == 70) {
+                set_give_up_button_visibility(show=true);
+                set_randomize_button_visibility(show=false);
+            }
         }
     }
     if (checkGameWon()) {
@@ -175,15 +182,40 @@ function makePlay(tileId, swipeDirection) {
     }
 }
 
+function set_give_up_button_visibility(show) {
+    const btn = document.getElementById("give-up-button");
+    btn.style.display = show ? "block" : "none";
+}
+
+function set_randomize_button_visibility(show) {
+    const btn = document.getElementById("randomize-button");
+    btn.style.display = show ? "block" : "none";
+}
+
 function win_game() {
     const texts = document.querySelectorAll(".announcement");
     texts.forEach((text, index) => { text.style.display = "block"; })
 
-    document.getElementById("randomize-button").style.display = "block";
+    set_randomize_button_visibility(show=true);
+    set_give_up_button_visibility(show=false);
     document.body.classList.add("winning-animation");
     setTimeout(function () {
         document.body.classList.remove("winning-animation");
     }, 10000);
+}
+
+function reset_board() {
+    for (let i=0; i < total_tile_count - 1; i++) {
+        const tile_id = `tile-${i}`;
+        tileState["tileLoc"][tile_id] = i;
+    }
+    tileState["nullLoc"] = total_tile_count - 1;
+}
+
+function give_up() {
+    reset_board();
+    drawGame();
+    win_game();
 }
 
 // TODO: Refactor Tile into a class that contains all of this information
