@@ -110,7 +110,7 @@ footer {
 }
 
 .tile.moving {
-  transition: transform 0.15s ease-in;
+  transition: transform 0.20s ease-in-out;
 }
 
 body.winning-animation {
