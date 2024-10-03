@@ -116,6 +116,7 @@ button {
   border-radius: 5px;
   overflow: hidden;
   position: relative;
+  cursor: pointer;
 }
 
 .tile.moving {
