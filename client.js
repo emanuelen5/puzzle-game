@@ -120,7 +120,7 @@ function randomizeBoard() {
         --count;
     }
     drawGame();
-    set_randomize_button_visibility(show=false);
+    set_randomize_button_visibility(show = false);
     move_count = 0;
 }
 
@@ -168,8 +168,8 @@ function makePlay(tileId, swipeDirection) {
             moveTile(tileId, tileLoc, nullLoc);
             move_count++;
             if (move_count == 100) {
-                set_give_up_button_visibility(show=true);
-                set_randomize_button_visibility(show=false);
+                set_give_up_button_visibility(show = true);
+                set_randomize_button_visibility(show = false);
             }
         }
     }
@@ -193,8 +193,8 @@ function win_game() {
     const texts = document.querySelectorAll(".announcement");
     texts.forEach((text, index) => { text.style.display = "block"; })
 
-    set_randomize_button_visibility(show=true);
-    set_give_up_button_visibility(show=false);
+    set_randomize_button_visibility(show = true);
+    set_give_up_button_visibility(show = false);
     document.body.classList.add("winning-animation");
     setTimeout(function () {
         document.body.classList.remove("winning-animation");
@@ -202,7 +202,7 @@ function win_game() {
 }
 
 function reset_board() {
-    for (let i=0; i < total_tile_count - 1; i++) {
+    for (let i = 0; i < total_tile_count - 1; i++) {
         const tile_id = `tile-${i}`;
         tileState["tileLoc"][tile_id] = i;
     }

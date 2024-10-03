@@ -3,7 +3,7 @@
 
 :root {
   --game-aspect-ratio: 1;
-  --img-url:'';
+  --img-url: '';
 }
 
 body {
@@ -11,7 +11,7 @@ body {
   font-family: sans-serif;
   margin: 0;
   padding: 0;
-  touch-action:none;
+  touch-action: none;
   /*display: flex;*/
   flex-direction: column;
   height: 100vh;
@@ -41,9 +41,9 @@ button {
 }
 
 #give-up-button {
-    background: radial-gradient(rgb(148, 68, 185), rgb(146, 116, 230));
-    color: #fff;
-  }
+  background: radial-gradient(rgb(148, 68, 185), rgb(146, 116, 230));
+  color: #fff;
+}
 
 
 #game-won {
@@ -60,12 +60,12 @@ button {
   grid-gap: 3px;
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(3, 1fr);
-  
+
   position: relative;
   margin: 1em auto;
-  
+
   height: 80vh;
-  width: calc(80vh * var(--game-aspect-ratio)) ;
+  width: calc(80vh * var(--game-aspect-ratio));
   background-size: calc(80vh * var(--game-aspect-ratio)) 80vh;
   user-select: none;
 }
@@ -73,7 +73,7 @@ button {
 @media screen and (max-width: 600px) {
   #game-area {
     width: 90vw;
-    height: calc(90vw / var(--game-aspect-ratio)) ;
+    height: calc(90vw / var(--game-aspect-ratio));
     background-size: 90vw calc(90vw / var(--game-aspect-ratio));
   }
 }
@@ -103,15 +103,15 @@ button {
 
 @media screen and (max-width: 600px) {
   .announcement {
-     font-size: 13vw;
+    font-size: 13vw;
   }
 }
 
 .tile {
   background-image: var(--img-url);
   background-size: inherit;
-  height:100%;
-  width:100%;
+  height: 100%;
+  width: 100%;
   background-position: inherit;
   border-radius: 5px;
   overflow: hidden;
@@ -130,24 +130,47 @@ body.winning-animation {
 }
 
 @-webkit-keyframes winning-animation {
-    0%{background-position:0% 52%}
-    50%{background-position:100% 49%}
-    100%{background-position:0% 52%}
+  0% {
+    background-position: 0% 52%
+  }
+
+  50% {
+    background-position: 100% 49%
+  }
+
+  100% {
+    background-position: 0% 52%
+  }
 }
-@keyframes winning-animation { 
-    0%{background-position:0% 52%}
-    50%{background-position:100% 49%}
-    100%{background-position:0% 52%}
+
+@keyframes winning-animation {
+  0% {
+    background-position: 0% 52%
+  }
+
+  50% {
+    background-position: 100% 49%
+  }
+
+  100% {
+    background-position: 0% 52%
+  }
 }
 
 @keyframes octocat-wave {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: rotate(0);
   }
-  20%, 60% {
+
+  20%,
+  60% {
     transform: rotate(-25deg);
   }
-  40%, 80% {
+
+  40%,
+  80% {
     transform: rotate(10deg);
   }
 }
