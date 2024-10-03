@@ -223,9 +223,11 @@ function moveTile(tileId, tileLoc, nullLoc) {
 
         tileEl.classList.remove("moving");
         drawGame();
+        tileEl.style.pointerEvents = null;
     });
 
     tileEl.classList.add("moving");
+    tileEl.style.pointerEvents = "none";
 }
 
 // Given a tile location and the location of the empty spot, tell us whether a move's valid, and if so, in what direction
