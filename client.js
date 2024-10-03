@@ -60,8 +60,8 @@ function tileSetup() {
         tile.querySelector(".number").innerText = index + 1;
         tile.querySelector(".announcement ").innerText = texts[index];
 
-        tile.addEventListener("mousedown", startSwipe);
-        tile.addEventListener("touchstart", startSwipe);
+        tile.addEventListener("mousedown", on_click_tile);
+        tile.addEventListener("touchstart", on_click_tile);
     });
 
     //TODO: make choice of tile to remove user-customisable
@@ -73,32 +73,9 @@ function unify(e) {
     return e.changedTouches ? e.changedTouches[0] : e;
 }
 
-function startSwipe(e) {
+function on_click_tile(e) {
     e.preventDefault();
-
-    const endType = e.type === "mousedown" ? "mouseup" : "touchend";
-
-    document.addEventListener(endType, function detectSwipeDirection(f) {
-        let swipeDirection = [
-            unify(f).clientX - unify(e).clientX,
-            unify(f).clientY - unify(e).clientY
-        ];
-        // turn swipe direction into a unit vector to make both values <= |1| (http://www.algebralab.org/lessons/lesson.aspx?file=Trigonometry_TrigVectorUnits.xml)
-        const denominator = Math.sqrt(
-            swipeDirection[0] ** 2 + swipeDirection[1] ** 2
-        );
-
-        if (denominator < 5 && endType === "touchend") {
-            // if there's a slight movement by the user on a touch screen, treat it as a tap
-            swipeDirection = [0, 0];
-        } else if (denominator !== 0) {
-            swipeDirection[0] = swipeDirection[0] / denominator;
-            swipeDirection[1] = swipeDirection[1] / denominator;
-        }
-
-        makePlay(e.target.id, swipeDirection);
-        document.removeEventListener(endType, detectSwipeDirection);
-    });
+    makePlay(e.target.id);
 }
 
 function deleteTile(tileId) {
@@ -155,22 +132,16 @@ function checkGameWon() {
 }
 
 // Game play
-function makePlay(tileId, swipeDirection) {
+function makePlay(tileId) {
     const tileLoc = getTileLoc(tileId);
     const nullLoc = getNullLoc();
     const tileRelativePos = findAdjacencyDirection(tileLoc, nullLoc);
     if (tileRelativePos) {
-        if (
-            swipeDirection.toString() === [0, 0].toString() ||
-            (Math.abs(swipeDirection[0] + tileRelativePos[0]) < 0.5 &&
-                Math.abs(swipeDirection[1] + tileRelativePos[1]) < 0.5)
-        ) {
-            moveTile(tileId, tileLoc, nullLoc);
-            move_count++;
-            if (move_count == 100) {
-                set_give_up_button_visibility(show = true);
-                set_randomize_button_visibility(show = false);
-            }
+        moveTile(tileId, tileLoc, nullLoc);
+        move_count++;
+        if (move_count == 100) {
+            set_give_up_button_visibility(show = true);
+            set_randomize_button_visibility(show = false);
         }
     }
     if (checkGameWon()) {
