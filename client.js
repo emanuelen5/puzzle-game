@@ -37,7 +37,6 @@ function gameSetup() {
 
         tileSetup();
         randomizeBoard();
-        //win_game();
     };
 }
 
@@ -66,11 +65,6 @@ function tileSetup() {
 
     //TODO: make choice of tile to remove user-customisable
     deleteTile("tile-8");
-}
-
-// from the excellent tutorial on unifying swipe types here: https://codepen.io/thebabydino/pen/qxebVa
-function unify(e) {
-    return e.changedTouches ? e.changedTouches[0] : e;
 }
 
 function on_click_tile(e) {
@@ -272,10 +266,6 @@ function getTileLoc(tileId) {
 
 function getTileLocs() {
     return tileState["tileLoc"];
-}
-
-function setTileLocs(tileLocs) {
-    tileState["tileLoc"] = tileLocs;
 }
 
 function getNullLoc() {
