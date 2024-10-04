@@ -222,7 +222,7 @@ function moveTile(tileId, tileLoc, nullLoc) {
         }
 
         tileEl.classList.remove("moving");
-        drawGame();
+        redraw_tile(tileEl);
         tileEl.style.pointerEvents = null;
     });
 
@@ -250,20 +250,20 @@ function findAdjacencyDirection(tileLoc, nullLoc) {
 
 // Given the current board state, draw all the tiles on the grid at the right spots
 function drawGame() {
-    const tiles = getTileLocs();
-    for (let key in tiles) {
-        const tileLoc = tiles[key];
+    const tiles = document.querySelectorAll(".tile");
+    tiles.forEach((tile) => {
+        redraw_tile(tile);
+    });
+}
 
-        if (tileLoc >= 0) {
-            // only attempt to draw tile if it has a location
-            const gridColumnStart = (tileLoc % 3) + 1;
-            const gridRowStart = Math.floor(tileLoc / 3) + 1;
+function redraw_tile(tile) {
+    const tileLoc = getTileLoc(tile.id);
 
-            const tile = document.getElementById(key);
-            tile.style.gridColumn = `${gridColumnStart} / ${gridColumnStart + 1}`;
-            tile.style.gridRow = `${gridRowStart} / ${gridRowStart + 1}`;
-        }
-    }
+    const gridColumnStart = (tileLoc % 3) + 1;
+    const gridRowStart = Math.floor(tileLoc / 3) + 1;
+
+    tile.style.gridColumn = `${gridColumnStart} / ${gridColumnStart + 1}`;
+    tile.style.gridRow = `${gridRowStart} / ${gridRowStart + 1}`;
 }
 
 function getTileLoc(tileId) {
